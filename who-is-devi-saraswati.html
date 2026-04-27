@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title data-lang-key="topic-1"></title>
+    <link rel="stylesheet" href="./assets/css/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
+
+    <style>
+      .home-btn {
+        position: fixed;
+        top: 3vw;
+        left: 3vw;
+        width: 3.5vw;
+        z-index: 9999;
+        opacity: 1;
+        transition: transform 0.2s ease;
+      }
+
+      .home-btn img {
+        display: block;
+        width: 100%;
+        height: auto;
+      }
+
+      .home-btn:hover {
+        opacity: 1;
+        transform: scale(1.15);
+      }
+
+      .page-title {
+        opacity: 1;
+      }
+
+      .page-title span {
+        position: fixed;
+        top: 2.5vw;
+      }
+
+      .prev-btn-1 {
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.3s ease;
+      }
+
+      .prev-btn-1.show {
+        opacity: 1;
+        pointer-events: auto;
+      }
+
+      .custom-pagination {
+        position: absolute;
+        top: 80%;
+        left: 42%;
+        transform: translateX(-50%);
+        z-index: 20;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 0.4vw;
+
+        width: max-content;
+        min-width: 6vw;
+        padding: 0.35vw 0.7vw;
+      }
+
+      .pagination-bullet {
+        width: 0.7vw;
+        height: 0.7vw;
+        border-radius: 50%;
+        background: rgba(130, 27, 0, 0.2);
+        border: 0.12vw solid #821b00;
+        cursor: pointer;
+        flex-shrink: 0;
+        transition:
+          transform 0.25s ease,
+          background 0.25s ease,
+          opacity 0.25s ease;
+      }
+
+      .pagination-bullet.active {
+        background: #821b00;
+        transform: scale(1.15);
+      }
+
+      .pagination-bullet:hover {
+        background: rgba(130, 27, 0, 0.5);
+      }
+    </style>
+  </head>
+  <body class="page-fade">
+    <a href="index.html" class="home-btn home-button">
+      <img src="./assets/images/home-btn.png" alt="" />
+    </a>
+
+    <div class="page-title">
+      <img src="./assets/images/title.png" alt="" />
+      <span data-lang-key="title"></span>
+    </div>
+
+    <div class="language-container">
+      <div class="english-button active">E</div>
+      <div class="hindi-button">H</div>
+      <div class="gujrati-button">G</div>
+    </div>
+
+    <div class="container">
+      <div class="left-container">
+        <img class="mandala-shadow" src="./assets/images/shadow.png" alt="" />
+        <img class="mandala-img" src="./assets/images/mandala.png" alt="" />
+
+        <div class="gif-box">
+          <img class="gif-frame" src="./assets/images/gif box.png" alt="" />
+          <div class="mask">
+            <img class="mask-image" src="./assets/images/devi_ 1.png" alt="" />
+          </div>
+        </div>
+
+        <a href="index.html" class="prev-btn back-to-index">
+          <img src="./assets/images/prev-btn.png" alt="" />
+        </a>
+      </div>
+
+      <div class="right-container">
+        <div class="custom-pagination"></div>
+
+        <div class="inner-container">
+          <img src="./assets/images/Group 7.png" alt="" />
+
+          <div class="swiper-content" id="swiperWrapper"></div>
+
+          <img src="./assets/images/Group 8.png" alt="" />
+        </div>
+
+        <div class="navigation-btn">
+          <div class="next-btn-1">
+            <img src="./assets/images/top-btn.png" alt="" />
+          </div>
+          <div class="prev-btn-1">
+            <img src="./assets/images/down-btn.png" alt="" />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="./assets/js/app.js"></script>
+    <script src="./assets/js/topic-slider.js"></script>
+  </body>
+</html>
