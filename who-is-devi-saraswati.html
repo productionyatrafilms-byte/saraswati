@@ -93,6 +93,7 @@
       }
     </style>
   </head>
+
   <body class="page-fade">
     <a href="index.html" class="home-btn home-button">
       <img src="./assets/images/home-btn.png" alt="" />
@@ -141,6 +142,7 @@
           <div class="next-btn-1">
             <img src="./assets/images/top-btn.png" alt="" />
           </div>
+
           <div class="prev-btn-1">
             <img src="./assets/images/down-btn.png" alt="" />
           </div>
@@ -151,5 +153,104 @@
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="./assets/js/app.js"></script>
     <script src="./assets/js/topic-slider.js"></script>
+
+    <script>
+      // ===== Audio Files =====
+      const englishAudio = new Audio("./assets/audio/Eng.mpeg");
+      const hindiAudio = new Audio("./assets/audio/Hin.mpeg");
+      const gujratiAudio = new Audio("./assets/audio/Guj.mpeg");
+
+      const homeAudio = new Audio("./assets/audio/pop.mp3");
+      const backAudio = new Audio("./assets/audio/topic_home-btn_back-btn/3.mp3");
+      const swipeAudio = new Audio("./assets/audio/swipe/1.mp3");
+
+      function playAudio(audio) {
+        audio.pause();
+        audio.currentTime = 0;
+
+        audio.play().catch(function (error) {
+          console.log("Audio play failed:", error);
+        });
+      }
+
+      // ===== Elements =====
+      const englishBtn = document.querySelector(".english-button");
+      const hindiBtn = document.querySelector(".hindi-button");
+      const gujratiBtn = document.querySelector(".gujrati-button");
+
+      const homeBtn = document.querySelector(".home-btn");
+      const backToIndexBtn = document.querySelector(".back-to-index");
+
+      const nextBtn = document.querySelector(".next-btn-1");
+      const prevBtn = document.querySelector(".prev-btn-1");
+      const customPagination = document.querySelector(".custom-pagination");
+
+      // ===== Language Button Audio =====
+      if (englishBtn) {
+        englishBtn.addEventListener("click", function () {
+          playAudio(englishAudio);
+        });
+      }
+
+      if (hindiBtn) {
+        hindiBtn.addEventListener("click", function () {
+          playAudio(hindiAudio);
+        });
+      }
+
+      if (gujratiBtn) {
+        gujratiBtn.addEventListener("click", function () {
+          playAudio(gujratiAudio);
+        });
+      }
+
+      // ===== Home Button Audio =====
+      if (homeBtn) {
+        homeBtn.addEventListener("click", function (e) {
+          e.preventDefault();
+
+          playAudio(homeAudio);
+
+          setTimeout(function () {
+            window.location.href = "index.html";
+          }, 500);
+        });
+      }
+
+      // ===== Back To Index Audio =====
+      if (backToIndexBtn) {
+        backToIndexBtn.addEventListener("click", function (e) {
+          e.preventDefault();
+
+          playAudio(backAudio);
+
+          setTimeout(function () {
+            window.location.href = "index.html";
+          }, 800);
+        });
+      }
+
+      // ===== Swiper Navigation Button Audio =====
+      if (nextBtn) {
+        nextBtn.addEventListener("click", function () {
+          playAudio(swipeAudio);
+        });
+      }
+
+      if (prevBtn) {
+        prevBtn.addEventListener("click", function () {
+          playAudio(swipeAudio);
+        });
+      }
+
+      // Optional: also play swipe audio when pagination bullets are clicked
+      if (customPagination) {
+        customPagination.addEventListener("click", function (e) {
+          if (e.target.classList.contains("pagination-bullet")) {
+            playAudio(swipeAudio);
+          }
+        });
+      }
+    </script>
   </body>
 </html>

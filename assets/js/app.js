@@ -76,7 +76,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     },
     2: {
       titleKey: "topic-2",
-      slides: ["slide-2.1", "slide-2.2", "slide-2.3", "slide-2.4", "slide-2.5"],
+      slides: ["slide-2.1"],
     },
     3: {
       titleKey: "topic-3",

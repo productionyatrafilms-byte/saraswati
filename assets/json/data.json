@@ -1,52 +1,34 @@
 {
   "English": {
-    "start": "START",
     "title": "Devi Saraswati",
+    "start": "Start",
     "topic-1": "Who is Devi Saraswati?",
-    "topic-2": "How to identify her?",
-    "topic-3": "How should we worship her?",
-    "pranam": "Pranam",
-    "home": "Home",
-    "slide-1.1": "Devi Saraswati is goddess of knowledge, music, art, wisdom and learning",
-    "slide-2.1": "She carries Veena, Mala, Aagam book & is often seated on a while Lotus",
-    "slide-2.2": "Veena",
-    "slide-2.3": "Mala",
-    "slide-2.4": "Aagam book",
-    "slide-2.5": "White Lotus",
-    "slide-3.1": "We must do \"Om Aim Namah\" Jaap for 5 minutes every day to increase our knowledge "
+    "topic-2": "Why do we worship Devi Saraswati?",
+    "topic-3": "How do we worship Devi Saraswati?",
+    "slide-1.1": "Devi Saraswati is the goddess of knowledge, wisdom, learning, music, and art. She blesses us with good thoughts, clear speech, sharp memory, and the ability to learn new things.",
+    "slide-2.1": "We worship Devi Saraswati to gain knowledge, improve memory, develop concentration, speak good words, and remove ignorance from our life.",
+    "slide-3.1": "We worship Devi Saraswati with devotion, clean thoughts, prayers, chanting, and respect for books, teachers, study materials, and knowledge."
   },
 
   "Hindi": {
-    "start": "प्रारंभ",
     "title": "देवी सरस्वती",
+    "start": "शुरू करें",
     "topic-1": "देवी सरस्वती कौन हैं?",
-    "topic-2": "उन्हें कैसे पहचाने?",
-    "topic-3": "हम उनकी पूजा कैसे करें?",
-    "pranam": "वंदना",
-    "home": "होम",
-    "slide-1.1": "देवी सरस्वती ज्ञान, संगीत और कला की देवी हैं।",
-    "slide-2.1": "उनके हाथों में वीणा, माला, आगम पुस्तक होते हैं और वे अक्सर सफ़ेद कमल पर बिराजते हैं।",
-    "slide-2.2": "वीणा",
-    "slide-2.3": "माला",
-    "slide-2.4": "आगम पुस्तक",
-    "slide-2.5": "सफ़ेद कमल",
-    "slide-3.1": "बुद्धि और ज्ञान के विकास हेतु हमें \"ॐ ऐँ नमः\" का जप प्रतिदिन ५ मिनट करना चाहिए।"
+    "topic-2": "हम देवी सरस्वती की पूजा क्यों करते हैं?",
+    "topic-3": "हम देवी सरस्वती की पूजा कैसे करते हैं?",
+    "slide-1.1": "देवी सरस्वती ज्ञान, बुद्धि, विद्या, संगीत और कला की देवी हैं। वे हमें अच्छे विचार, स्पष्ट वाणी, तेज स्मरणशक्ति और नई चीजें सीखने की क्षमता प्रदान करती हैं।",
+    "slide-2.1": "हम देवी सरस्वती की पूजा ज्ञान प्राप्त करने, स्मरणशक्ति बढ़ाने, एकाग्रता विकसित करने, अच्छी वाणी बोलने और जीवन से अज्ञान दूर करने के लिए करते हैं।",
+    "slide-3.1": "हम देवी सरस्वती की पूजा भक्ति, शुद्ध विचार, प्रार्थना, मंत्र-जाप और पुस्तकों, शिक्षकों, अध्ययन सामग्री तथा ज्ञान के प्रति सम्मान के साथ करते हैं।"
   },
 
   "Gujarati": {
-    "start": "પ્રારંભ",
-    "title": "સરસ્વતી દેવી",
-    "topic-1": "સરસ્વતી દેવી કોણ છે?",
-    "topic-2": "એમને કેવી રીતે ઓળખવા?",
-    "topic-3": "આપણે એમની પૂજા કેવી રીતે કરવી?",
-    "pranam": "વંદના",
-    "home": "હોમ",
-    "slide-1.1": "સરસ્વતી દેવી જ્ઞાન, સંગીત અને કળાની દેવી છે.",
-    "slide-2.1": "એમના હાથમાં વીણા, માળા, આગમ પુસ્તક હોય છે અને તેઓ હમેશા સફેદ કમળ પર બિરાજે છે.",
-    "slide-2.2": "વીણા",
-    "slide-2.3": "માળા",
-    "slide-2.4": "આગમ પુસ્તક",
-    "slide-2.5": "સફેદ કમળ",
-    "slide-3.1": "બુદ્ધિ અને જ્ઞાનના વિકાસ માટે આપણે \"ॐ ऐँ नमः\" નો પ્રતિદિન ૫ મિનિટ જાપ કરવો જોઈએ."
+    "title": "દેવી સરસ્વતી",
+    "start": "શરૂ કરો",
+    "topic-1": "દેવી સરસ્વતી કોણ છે?",
+    "topic-2": "અમે દેવી સરસ્વતીની પૂજા કેમ કરીએ છીએ?",
+    "topic-3": "અમે દેવી સરસ્વતીની પૂજા કેવી રીતે કરીએ છીએ?",
+    "slide-1.1": "દેવી સરસ્વતી જ્ઞાન, બુદ્ધિ, વિદ્યા, સંગીત અને કલાની દેવી છે. તેઓ આપણને સારા વિચારો, સ્પષ્ટ વાણી, સારી સ્મરણશક્તિ અને નવી વસ્તુઓ શીખવાની શક્તિ આપે છે.",
+    "slide-2.1": "અમે જ્ઞાન મેળવવા, સ્મરણશક્તિ વધારવા, એકાગ્રતા વિકસાવવા, સારી વાણી બોલવા અને જીવનમાંથી અજ્ઞાન દૂર કરવા માટે દેવી સરસ્વતીની પૂજા કરીએ છીએ.",
+    "slide-3.1": "અમે ભક્તિ, શુદ્ધ વિચારો, પ્રાર્થના, મંત્ર-જાપ અને પુસ્તકો, શિક્ષકો, અભ્યાસ સામગ્રી તથા જ્ઞાન પ્રત્યે આદર રાખીને દેવી સરસ્વતીની પૂજા કરીએ છીએ."
   }
 }

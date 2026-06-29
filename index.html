@@ -25,6 +25,7 @@
       <img src="./assets/images/title.png" alt="" />
       <span data-lang-key="title"></span>
     </div>
+
     <!-- nav-container -->
     <div class="language-container">
       <div class="english-button active">E</div>
@@ -35,109 +36,219 @@
     <div class="left-design">
       <img src="assets/images/Group 1.png" alt="" />
     </div>
+
     <div class="right-design">
       <img src="assets/images/Group 2.png" class="right-design" alt="" />
     </div>
+
     <div class="center">
       <div class="mandala">
         <img src="assets/images/mandala.png" alt="" />
       </div>
+
       <div class="flower">
         <img src="assets/images/design 1.png" alt="" />
       </div>
+
       <div class="shadow">
         <img src="./assets/images/shadow.png" alt="" />
       </div>
+
       <div class="devi-img">
         <img src="./assets/images/devi_ 1.png" alt="" />
       </div>
+
       <span data-lang-key="title"></span>
     </div>
 
-    <!--topics -->
+    <!-- topics -->
     <div class="topics">
       <a href="who-is-devi-saraswati.html?section=1" class="topic-1 topic">
-      <img src="./assets/images/Group 1321314345.png" alt="" />
-      <span data-lang-key="topic-1"></span>
-    </a>
+        <img src="./assets/images/Group 1321314345.png" alt="" />
+        <span data-lang-key="topic-1"></span>
+      </a>
 
-    <a href="who-is-devi-saraswati.html?section=2" class="topic-2 topic">
-      <img src="./assets/images/Group 1321314345.png" alt="" />
-      <span data-lang-key="topic-2"></span>
-    </a>
+      <a href="who-is-devi-saraswati.html?section=2" class="topic-2 topic">
+        <img src="./assets/images/Group 1321314345.png" alt="" />
+        <span data-lang-key="topic-2"></span>
+      </a>
 
-    <a href="who-is-devi-saraswati.html?section=3" class="topic-3 topic">
-      <img src="./assets/images/Group 1321314345.png" alt="" />
-      <span data-lang-key="topic-3"></span>
-    </a>
+      <a href="who-is-devi-saraswati.html?section=3" class="topic-3 topic">
+        <img src="./assets/images/Group 1321314345.png" alt="" />
+        <span data-lang-key="topic-3"></span>
+      </a>
     </div>
   </div>
 
   <div class="video-overlay" id="videoOverlay">
-  <div class="video-box" id="videoBox">
-    <div class="close-video" id="closeVideo">
-      <img src="./assets/images/close-btn.png" alt="" />
+    <div class="video-box" id="videoBox">
+      <div class="close-video" id="closeVideo">
+        <img src="./assets/images/close-btn.png" alt="" />
+      </div>
+
+      <video id="popupVideo" loop>
+        <source src="assets/videos/He Sharde Maa.mkv" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+
+      <button class="custom-video-btn" id="customVideoBtn" type="button">
+        <img id="videoBtnIcon" src="./assets/images/video-pause-btn.png" alt="Play" />
+      </button>
     </div>
-
-    <video id="popupVideo" loop>
-      <source src="assets/videos/He Sharde Maa.mkv" type="video/mp4" />
-      Your browser does not support the video tag.
-    </video>
-
-    <button class="custom-video-btn" id="customVideoBtn" type="button">
-      <img id="videoBtnIcon" src="./assets/images/video-pause-btn.png" alt="Play" />
-    </button>
-  </div>
-</div>
   </div>
 
   <script src="./assets/js/app.js"></script>
+
   <script>
-  const popupVideo = document.getElementById("popupVideo");
-  const customVideoBtn = document.getElementById("customVideoBtn");
-  const videoBtnIcon = document.getElementById("videoBtnIcon");
-  const videoBox = document.getElementById("videoBox");
-  const closeVideo = document.getElementById("closeVideo");
+    const popupVideo = document.getElementById("popupVideo");
+    const customVideoBtn = document.getElementById("customVideoBtn");
+    const videoBtnIcon = document.getElementById("videoBtnIcon");
+    const videoBox = document.getElementById("videoBox");
+    const closeVideo = document.getElementById("closeVideo");
 
-  const playIcon = "./assets/images/video-pause-btn.png";
+    const playIcon = "./assets/images/video-pause-btn.png";
 
-  // keep video paused by default
-  popupVideo.pause();
+    // ===== Audio =====
+    const englishAudio = new Audio("./assets/audio/Eng.mpeg");
+    const hindiAudio = new Audio("./assets/audio/Hin.mpeg");
+    const gujratiAudio = new Audio("./assets/audio/Guj.mpeg");
+    const videoPlayAudio = new Audio("./assets/audio/transition/1.mp3");
+    const flowerAudio = new Audio("./assets/audio/transition/5.mp3");
+    const topicAudio = new Audio("./assets/audio/topic_home-btn_back-btn/3.mp3");
+    const homeAudio = new Audio("./assets/audio/pop.mp3");
 
-  function updateVideoState() {
-    if (popupVideo.paused) {
-      videoBtnIcon.src = playIcon;
-      videoBtnIcon.alt = "Play";
-      videoBox.classList.remove("playing");
-    } else {
-      videoBox.classList.add("playing");
+    function playAudio(audio) {
+      audio.pause();
+      audio.currentTime = 0;
+      audio.play().catch(function (error) {
+        console.log("Audio play failed:", error);
+      });
     }
-  }
 
-  // play only from button click
-  customVideoBtn.addEventListener("click", function (e) {
-    e.stopPropagation();
-    popupVideo.play();
-  });
+    const englishBtn = document.querySelector(".english-button");
+    const hindiBtn = document.querySelector(".hindi-button");
+    const gujratiBtn = document.querySelector(".gujrati-button");
+    const videoPlayBtn = document.getElementById("videoPlayBtn");
+    const flower = document.querySelector(".flower");
+    const flowerSpan = document.querySelector(".center > span");
+    const topicLinks = document.querySelectorAll(".topic");
+    const homeBtn = document.querySelector(".home-btn");
 
-  // clicking video pauses it and shows play button
-  popupVideo.addEventListener("click", function () {
-    if (!popupVideo.paused) {
+    if (englishBtn) {
+      englishBtn.addEventListener("click", function () {
+        playAudio(englishAudio);
+      });
+    }
+
+    if (hindiBtn) {
+      hindiBtn.addEventListener("click", function () {
+        playAudio(hindiAudio);
+      });
+    }
+
+    if (gujratiBtn) {
+      gujratiBtn.addEventListener("click", function () {
+        playAudio(gujratiAudio);
+      });
+    }
+
+    if (videoPlayBtn) {
+      videoPlayBtn.addEventListener("click", function () {
+        playAudio(videoPlayAudio);
+      });
+    }
+
+    if (flower) {
+      flower.style.cursor = "pointer";
+
+      flower.addEventListener("click", function () {
+        playAudio(flowerAudio);
+      });
+    }
+
+    if (flowerSpan) {
+      flowerSpan.style.cursor = "pointer";
+
+      flowerSpan.addEventListener("click", function () {
+        playAudio(flowerAudio);
+      });
+    }
+
+    // ===== Home Button Audio =====
+    if (homeBtn) {
+      homeBtn.style.cursor = "pointer";
+
+      homeBtn.addEventListener("click", function (e) {
+        e.preventDefault();
+
+        playAudio(homeAudio);
+
+        setTimeout(function () {
+          window.location.href = "index.html";
+        }, 500);
+      });
+    }
+
+    // ===== Topic Click Audio =====
+    topicLinks.forEach(function (topic) {
+      topic.addEventListener("click", function (e) {
+        e.preventDefault();
+
+        const pageLink = topic.getAttribute("href");
+
+        playAudio(topicAudio);
+
+        setTimeout(function () {
+          window.location.href = pageLink;
+        }, 800);
+      });
+    });
+
+    // keep video paused by default
+    if (popupVideo) {
       popupVideo.pause();
     }
-  });
 
-  popupVideo.addEventListener("play", updateVideoState);
-  popupVideo.addEventListener("pause", updateVideoState);
+    function updateVideoState() {
+      if (popupVideo.paused) {
+        videoBtnIcon.src = playIcon;
+        videoBtnIcon.alt = "Play";
+        videoBox.classList.remove("playing");
+      } else {
+        videoBox.classList.add("playing");
+      }
+    }
 
-  closeVideo.addEventListener("click", function () {
-    popupVideo.pause();
-    popupVideo.currentTime = 0;
+    // play only from button click
+    if (customVideoBtn) {
+      customVideoBtn.addEventListener("click", function (e) {
+        e.stopPropagation();
+        popupVideo.play();
+      });
+    }
+
+    // clicking video pauses it and shows play button
+    if (popupVideo) {
+      popupVideo.addEventListener("click", function () {
+        if (!popupVideo.paused) {
+          popupVideo.pause();
+        }
+      });
+
+      popupVideo.addEventListener("play", updateVideoState);
+      popupVideo.addEventListener("pause", updateVideoState);
+    }
+
+    if (closeVideo) {
+      closeVideo.addEventListener("click", function () {
+        popupVideo.pause();
+        popupVideo.currentTime = 0;
+        updateVideoState();
+      });
+    }
+
     updateVideoState();
-  });
-
-  updateVideoState();
-</script>
+  </script>
 </body>
 
 </html>

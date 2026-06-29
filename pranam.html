@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="./assets/css/style.css" />
     <style></style>
   </head>
+
   <body class="page-fade">
     <!-- nav-container -->
     <div class="language-container">
@@ -14,17 +15,15 @@
       <div class="hindi-button">H</div>
       <div class="gujrati-button">G</div>
     </div>
-    <!-- <a href="who-is-devi-saraswati.html" class="back-btn">
-      <img src="./assets/images/prev-btn.png" alt="" />
-    </a> -->
 
     <a href="who-is-devi-saraswati.html" class="back-btn">
-        <img src="./assets/images/prev-btn.png" alt="" /> 
+      <img src="./assets/images/prev-btn.png" alt="" />
     </a>
 
     <div class="left-wheel wheel">
       <img src="./assets/images/mandala.png" alt="" />
     </div>
+
     <div class="right-wheel wheel">
       <img src="./assets/images/mandala.png" alt="" />
     </div>
@@ -34,12 +33,88 @@
         <span data-lang-key="pranam"></span>
         <img src="./assets/images/pranam-img.png" alt="" />
       </div>
+
       <a href="index.html" class="home-btn-1">
         <span data-lang-key="home"></span>
         <img src="./assets/images/home-btn-1.png" alt="" />
       </a>
     </div>
+
     <script src="./assets/js/app.js"></script>
     <script src="./assets/js/topic-slider.js"></script>
+
+    <script>
+      // ===== Audio Files =====
+      const englishAudio = new Audio("./assets/audio/Eng.mpeg");
+      const hindiAudio = new Audio("./assets/audio/Hin.mpeg");
+      const gujratiAudio = new Audio("./assets/audio/Guj.mpeg");
+
+      const homeAudio = new Audio("./assets/audio/pop.mp3");
+      const flowerAudio = new Audio("./assets/audio/transition/5.mp3");
+
+      function playAudio(audio) {
+        audio.pause();
+        audio.currentTime = 0;
+
+        audio.play().catch(function (error) {
+          console.log("Audio play failed:", error);
+        });
+      }
+
+      // ===== Elements =====
+      const englishBtn = document.querySelector(".english-button");
+      const hindiBtn = document.querySelector(".hindi-button");
+      const gujratiBtn = document.querySelector(".gujrati-button");
+
+      const backBtn = document.querySelector(".back-btn");
+      const homeBtn1 = document.querySelector(".home-btn-1");
+
+      // ===== Language Button Audio =====
+      if (englishBtn) {
+        englishBtn.addEventListener("click", function () {
+          playAudio(englishAudio);
+        });
+      }
+
+      if (hindiBtn) {
+        hindiBtn.addEventListener("click", function () {
+          playAudio(hindiAudio);
+        });
+      }
+
+      if (gujratiBtn) {
+        gujratiBtn.addEventListener("click", function () {
+          playAudio(gujratiAudio);
+        });
+      }
+
+      // ===== Back Button Audio =====
+      // Same audio as home button: ./assets/audio/pop.mp3
+      if (backBtn) {
+        backBtn.addEventListener("click", function (e) {
+          e.preventDefault();
+
+          playAudio(homeAudio);
+
+          setTimeout(function () {
+            window.location.href = "who-is-devi-saraswati.html";
+          }, 500);
+        });
+      }
+
+      // ===== Home Button 1 Audio =====
+      // Same audio as flower: ./assets/audio/transition/5.mp3
+      if (homeBtn1) {
+        homeBtn1.addEventListener("click", function (e) {
+          e.preventDefault();
+
+          playAudio(flowerAudio);
+
+          setTimeout(function () {
+            window.location.href = "index.html";
+          }, 800);
+        });
+      }
+    </script>
   </body>
 </html>
