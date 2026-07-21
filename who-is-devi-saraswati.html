@@ -2,9 +2,19 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+
     <title data-lang-key="topic-1"></title>
-    <link rel="stylesheet" href="./assets/css/style.css" />
+
+    <link
+      rel="stylesheet"
+      href="./assets/css/style.css"
+    />
+
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
@@ -41,17 +51,41 @@
         top: 2.5vw;
       }
 
+      /* Previous button */
       .prev-btn-1 {
         opacity: 0;
+        visibility: hidden;
         pointer-events: none;
-        transition: opacity 0.3s ease;
+
+        transition:
+          opacity 0.3s ease,
+          visibility 0.3s ease;
       }
 
       .prev-btn-1.show {
         opacity: 1;
+        visibility: visible;
         pointer-events: auto;
       }
 
+      /* Next button */
+      .next-btn-1 {
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+
+        transition:
+          opacity 0.3s ease,
+          visibility 0.3s ease;
+      }
+
+      .next-btn-1.hide {
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+      }
+
+      /* Pagination */
       .custom-pagination {
         position: absolute;
         top: 80%;
@@ -73,10 +107,13 @@
         width: 0.7vw;
         height: 0.7vw;
         border-radius: 50%;
+
         background: rgba(130, 27, 0, 0.2);
         border: 0.12vw solid #821b00;
+
         cursor: pointer;
         flex-shrink: 0;
+
         transition:
           transform 0.25s ease,
           background 0.25s ease,
@@ -91,39 +128,164 @@
       .pagination-bullet:hover {
         background: rgba(130, 27, 0, 0.5);
       }
+
+      /* Pranam link */
+      .pranam-link {
+        position: fixed;
+        right: 2vw;
+        bottom: 2vw;
+        z-index: 9999;
+
+        width: 15vw;
+        height: 6vw;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        text-decoration: none;
+
+        background-image: url("./assets/images/arowAsset.png");
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: contain;
+
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+        transform: scale(0.4);
+
+        transition:
+          opacity 0.3s ease,
+          transform 0.3s ease,
+          visibility 0s linear 0.3s;
+      }
+
+      .pranam-link.show {
+        visibility: visible;
+        pointer-events: auto;
+
+        animation: pranamPopIn 0.65s
+          cubic-bezier(0.34, 1.56, 0.64, 1)
+          forwards;
+      }
+
+      .pranam-link span {
+        padding-right: 2vw;
+
+        font-family: "BalooRegular", sans-serif;
+        font-size: 2vw;
+        color: white;
+        text-align: center;
+      }
+
+      .pranam-link.show:hover {
+        animation: none;
+        opacity: 1;
+        transform: scale(1.06);
+        transition: transform 0.2s ease;
+      }
+
+      @keyframes pranamPopIn {
+        0% {
+          opacity: 0;
+          transform: scale(0.4);
+        }
+
+        60% {
+          opacity: 1;
+          transform: scale(1.08);
+        }
+
+        80% {
+          opacity: 1;
+          transform: scale(0.96);
+        }
+
+        100% {
+          opacity: 1;
+          transform: scale(1);
+        }
+      }
     </style>
   </head>
 
   <body class="page-fade">
-    <a href="index.html" class="home-btn home-button">
-      <img src="./assets/images/home-btn.png" alt="" />
+    <!-- Home button -->
+    <a
+      href="index.html"
+      class="home-btn home-button"
+    >
+      <img
+        src="./assets/images/home-btn.png"
+        alt="Home"
+      />
     </a>
 
+    <!-- Page title -->
     <div class="page-title">
-      <img src="./assets/images/title.png" alt="" />
+      <img
+        src="./assets/images/title.png"
+        alt=""
+      />
+
       <span data-lang-key="title"></span>
     </div>
 
+    <!-- Language buttons -->
     <div class="language-container">
       <div class="english-button active">E</div>
       <div class="hindi-button">H</div>
       <div class="gujrati-button">G</div>
     </div>
 
+    <!-- Initially hidden Pranam link -->
+    <a
+      href="pranam.html"
+      class="pranam-link"
+      aria-hidden="true"
+    >
+      <span data-lang-key="pranam">Pranam</span>
+    </a>
+
     <div class="container">
       <div class="left-container">
-        <img class="mandala-shadow" src="./assets/images/shadow.png" alt="" />
-        <img class="mandala-img" src="./assets/images/mandala.png" alt="" />
+        <img
+          class="mandala-shadow"
+          src="./assets/images/shadow.png"
+          alt=""
+        />
+
+        <img
+          class="mandala-img"
+          src="./assets/images/mandala.png"
+          alt=""
+        />
 
         <div class="gif-box">
-          <img class="gif-frame" src="./assets/images/gif box.png" alt="" />
+          <img
+            class="gif-frame"
+            src="./assets/images/gif box.png"
+            alt=""
+          />
+
           <div class="mask">
-            <img class="mask-image" src="./assets/images/devi_ 1.png" alt="" />
+            <img
+              class="mask-image"
+              src="./assets/images/devi_ 1.png"
+              alt=""
+            />
           </div>
         </div>
 
-        <a href="index.html" class="prev-btn back-to-index">
-          <img src="./assets/images/prev-btn.png" alt="" />
+        <a
+          href="index.html"
+          class="prev-btn back-to-index"
+        >
+          <img
+            src="./assets/images/prev-btn.png"
+            alt="Back"
+          />
         </a>
       </div>
 
@@ -131,20 +293,35 @@
         <div class="custom-pagination"></div>
 
         <div class="inner-container">
-          <img src="./assets/images/Group 7.png" alt="" />
+          <img
+            src="./assets/images/Group 7.png"
+            alt=""
+          />
 
-          <div class="swiper-content" id="swiperWrapper"></div>
+          <div
+            class="swiper-content"
+            id="swiperWrapper"
+          ></div>
 
-          <img src="./assets/images/Group 8.png" alt="" />
+          <img
+            src="./assets/images/Group 8.png"
+            alt=""
+          />
         </div>
 
         <div class="navigation-btn">
           <div class="next-btn-1">
-            <img src="./assets/images/top-btn.png" alt="" />
+            <img
+              src="./assets/images/top-btn.png"
+              alt="Next"
+            />
           </div>
 
           <div class="prev-btn-1">
-            <img src="./assets/images/down-btn.png" alt="" />
+            <img
+              src="./assets/images/down-btn.png"
+              alt="Previous"
+            />
           </div>
         </div>
       </div>
@@ -155,16 +332,34 @@
     <script src="./assets/js/topic-slider.js"></script>
 
     <script>
-      // ===== Audio Files =====
-      const englishAudio = new Audio("./assets/audio/Eng.mpeg");
-      const hindiAudio = new Audio("./assets/audio/Hin.mpeg");
-      const gujratiAudio = new Audio("./assets/audio/Guj.mpeg");
+      // Audio files
+      const englishAudio = new Audio(
+        "./assets/audio/Eng.mpeg",
+      );
 
-      const homeAudio = new Audio("./assets/audio/pop.mp3");
-      const backAudio = new Audio("./assets/audio/topic_home-btn_back-btn/3.mp3");
-      const swipeAudio = new Audio("./assets/audio/swipe/1.mp3");
+      const hindiAudio = new Audio(
+        "./assets/audio/Hin.mpeg",
+      );
+
+      const gujratiAudio = new Audio(
+        "./assets/audio/Guj.mpeg",
+      );
+
+      const homeAudio = new Audio(
+        "./assets/audio/pop.mp3",
+      );
+
+      const backAudio = new Audio(
+        "./assets/audio/topic_home-btn_back-btn/3.mp3",
+      );
+
+      const swipeAudio = new Audio(
+        "./assets/audio/swipe/1.mp3",
+      );
 
       function playAudio(audio) {
+        if (!audio) return;
+
         audio.pause();
         audio.currentTime = 0;
 
@@ -173,83 +368,107 @@
         });
       }
 
-      // ===== Elements =====
-      const englishBtn = document.querySelector(".english-button");
-      const hindiBtn = document.querySelector(".hindi-button");
-      const gujratiBtn = document.querySelector(".gujrati-button");
+      const englishBtn = document.querySelector(
+        ".english-button",
+      );
 
-      const homeBtn = document.querySelector(".home-btn");
-      const backToIndexBtn = document.querySelector(".back-to-index");
+      const hindiBtn = document.querySelector(
+        ".hindi-button",
+      );
 
-      const nextBtn = document.querySelector(".next-btn-1");
-      const prevBtn = document.querySelector(".prev-btn-1");
-      const customPagination = document.querySelector(".custom-pagination");
+      const gujratiBtn = document.querySelector(
+        ".gujrati-button",
+      );
 
-      // ===== Language Button Audio =====
+      const homeBtn =
+        document.querySelector(".home-btn");
+
+      const backToIndexBtn =
+        document.querySelector(".back-to-index");
+
+      const nextBtn =
+        document.querySelector(".next-btn-1");
+
+      const prevBtn =
+        document.querySelector(".prev-btn-1");
+
+      const customPagination =
+        document.querySelector(".custom-pagination");
+
       if (englishBtn) {
-        englishBtn.addEventListener("click", function () {
+        englishBtn.addEventListener("click", () => {
           playAudio(englishAudio);
         });
       }
 
       if (hindiBtn) {
-        hindiBtn.addEventListener("click", function () {
+        hindiBtn.addEventListener("click", () => {
           playAudio(hindiAudio);
         });
       }
 
       if (gujratiBtn) {
-        gujratiBtn.addEventListener("click", function () {
+        gujratiBtn.addEventListener("click", () => {
           playAudio(gujratiAudio);
         });
       }
 
-      // ===== Home Button Audio =====
       if (homeBtn) {
-        homeBtn.addEventListener("click", function (e) {
-          e.preventDefault();
+        homeBtn.addEventListener("click", (event) => {
+          event.preventDefault();
 
           playAudio(homeAudio);
 
-          setTimeout(function () {
+          setTimeout(() => {
             window.location.href = "index.html";
           }, 500);
         });
       }
 
-      // ===== Back To Index Audio =====
       if (backToIndexBtn) {
-        backToIndexBtn.addEventListener("click", function (e) {
-          e.preventDefault();
+        backToIndexBtn.addEventListener(
+          "click",
+          (event) => {
+            event.preventDefault();
 
-          playAudio(backAudio);
+            playAudio(backAudio);
 
-          setTimeout(function () {
-            window.location.href = "index.html";
-          }, 800);
-        });
+            setTimeout(() => {
+              window.location.href = "index.html";
+            }, 800);
+          },
+        );
       }
 
-      // ===== Swiper Navigation Button Audio =====
       if (nextBtn) {
-        nextBtn.addEventListener("click", function () {
-          playAudio(swipeAudio);
+        nextBtn.addEventListener("click", () => {
+          if (!nextBtn.classList.contains("hide")) {
+            playAudio(swipeAudio);
+          }
         });
       }
 
       if (prevBtn) {
-        prevBtn.addEventListener("click", function () {
-          playAudio(swipeAudio);
-        });
-      }
-
-      // Optional: also play swipe audio when pagination bullets are clicked
-      if (customPagination) {
-        customPagination.addEventListener("click", function (e) {
-          if (e.target.classList.contains("pagination-bullet")) {
+        prevBtn.addEventListener("click", () => {
+          if (prevBtn.classList.contains("show")) {
             playAudio(swipeAudio);
           }
         });
+      }
+
+      if (customPagination) {
+        customPagination.addEventListener(
+          "click",
+          (event) => {
+            if (
+              event.target.classList.contains(
+                "pagination-bullet",
+              )
+            ) {
+              playAudio(swipeAudio);
+            }
+          },
+        );
       }
     </script>
   </body>

@@ -14,9 +14,9 @@
 }
 
 @font-face {
-  font-family: "NotoSansGujaratiBold";
-  src: url("../../fonts/NotoSansGujarati-Bold.ttf") format("truetype");
-  font-weight: 700;
+  font-family: "ITFDevanagari";
+  src: url("../../fonts/ITFDevanagari.ttc") format("truetype");
+  font-weight: 700!important;
   font-style: normal;
   font-display: swap;
 }
@@ -24,11 +24,20 @@
 @font-face {
   font-family: "NotoSansGujaratiRegular";
   src: url("../../fonts/NotoSansGujarati-Regular.ttf") format("truetype");
-  font-weight: 400;
+  font-weight: 700!important;
   font-style: normal;
   font-display: swap;
 }
 
+body[data-lang="hi"] {
+  font-family: "ITFDevanagari"!important;
+  font-weight: 700;
+}
+
+body[data-lang="gu"] {
+  font-family: "NotoSansGujaratiRegular"!important;
+  font-weight: 700;
+}
 
 *::before,
 *::after {
@@ -64,7 +73,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-around;
-  width: 8vw;
+  width: auto;
   height: auto;
   background-color: transparent;
   border: 0.2vw solid #821B00;
@@ -75,6 +84,7 @@ body {
   z-index: 1000;
   opacity: 1;
   transition: opacity 1.2s ease;
+  gap:1vw;
 }
 
 .video-play-btn span {
@@ -112,7 +122,7 @@ body {
 }
 
 .page-content {
-  position: relative;
+  /* position: relative; */
   width: 100vw;
   height: 55vw;
   transition: filter 0.4s ease;
@@ -285,7 +295,7 @@ body {
   transform: translate(-50%, -50%);
   width: 40vw;
   text-align: center;
-  font-size: 2.5vw;
+  font-size: 2vw;
   color: #821B00;
   font-weight: 700;
   font-family: "BerkshireSwash";
@@ -293,8 +303,51 @@ body {
 
 
 body[data-lang="gu"] .page-title span {
-  font-size: 2.2vw;
-  font-family: "Noto Sans Gujarati";
+  font-size: 1.7vw!important;
+    font-family: "NotoSansGujaratiRegular"!important;
+    font-weight: bolder!important;
+}
+
+body[data-lang="hi"] .page-title span{
+   font-size: 2vw!important;
+    font-family:"NotoSansGujaratiRegular"!important;
+    font-weight: bolder!important;
+}
+
+
+body[data-lang="gu"] .inner-container .swiper-content{
+    font-family: "NotoSansGujaratiRegular"!important;
+  font-size: 2.5vw!important;
+  font-weight: bolder!important;
+}
+
+/* Hindi translated text */
+body[data-lang="hi"] [data-lang-key],
+body[data-lang="hi"] .page-title span,
+body[data-lang="hi"] .center span,
+body[data-lang="hi"] .topic span,
+body[data-lang="hi"] .video-play-btn span,
+body[data-lang="hi"] .pranam-link span {
+  font-family: "ITFDevanagari", sans-serif !important;
+  font-weight: 700;
+}
+
+/* Gujarati translated text */
+body[data-lang="gu"] [data-lang-key],
+body[data-lang="gu"] .page-title span,
+body[data-lang="gu"] .center span,
+body[data-lang="gu"] .topic span,
+body[data-lang="gu"] .video-play-btn span,
+body[data-lang="gu"] .pranam-link span {
+  font-family: "NotoSansGujarati", sans-serif !important;
+  font-weight: 400;
+}
+
+body[data-lang="gu"] .center span{
+  line-height: 8vw!important;
+  font-size: 5vw!important;
+  white-space:nowrap;
+  font-weight: bolder!important;
 }
 
 
@@ -305,7 +358,7 @@ body[data-lang="gu"] .page-title span {
 }
 
 .language-container {
-  position: absolute;
+  position: fixed;
   top: 3vw;
   right: 5vw;
   display: flex;
@@ -466,11 +519,15 @@ body[data-lang="gu"] .page-title span {
 
 .center span {
   position: absolute;
-  font-size: 6vw;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   width: 26vw;
+  min-height: 8vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 6vw;
   text-align: center;
   line-height: 5vw;
   color: #821B00;
@@ -533,7 +590,7 @@ body[data-lang="gu"] .page-title span {
   transform: translateY(-50%);
   width: 50vw;
   height: 42vw;
-
+  pointer-events: none;   /* new — let clicks fall through to .center by default */
 }
 
 .topic {
@@ -548,11 +605,11 @@ body[data-lang="gu"] .page-title span {
 }
 
 
-.page-content.topic-show .topic,
-.page-content.restored-stage-2 .topic {
-  opacity: 1;
-  transform: translateX(0);
+.page-content.topic-show .topics,
+.page-content.restored-stage-2 .topics {
+  pointer-events: auto;   /* new — re-enable once topics are shown */
 }
+
 
 .page-content.topic-show .topic:hover,
 .page-content.restored-stage-2 .topic:hover {
@@ -867,6 +924,21 @@ html.restoring-state *::after {
   border-radius: 50vw;
 }
 
+.next-btn-1 {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transition:
+    opacity 0.3s ease,
+    visibility 0.3s ease;
+}
+
+.next-btn-1.hide {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
 .next-btn-1 img,
 .prev-btn-1 img {
   width: 30%;
@@ -1021,3 +1093,4 @@ body.page-fade.page-exit {
     opacity: 0;
   }
 }
+

@@ -16,7 +16,7 @@
       <div class="gujrati-button">G</div>
     </div>
 
-    <a href="who-is-devi-saraswati.html" class="back-btn">
+    <a href="who-is-devi-saraswati.html?section=3" class="back-btn">
       <img src="./assets/images/prev-btn.png" alt="" />
     </a>
 
@@ -51,6 +51,7 @@
 
       const homeAudio = new Audio("./assets/audio/pop.mp3");
       const flowerAudio = new Audio("./assets/audio/transition/5.mp3");
+      const pranamAudio = new Audio("./assets/audio/pranam.mp3");
 
       function playAudio(audio) {
         audio.pause();
@@ -68,6 +69,11 @@
 
       const backBtn = document.querySelector(".back-btn");
       const homeBtn1 = document.querySelector(".home-btn-1");
+
+      // ===== Play Pranam Audio on Page Load Only =====
+      window.addEventListener("DOMContentLoaded", function () {
+        playAudio(pranamAudio);
+      });
 
       // ===== Language Button Audio =====
       if (englishBtn) {

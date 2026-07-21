@@ -1,254 +1,626 @@
 <!doctype html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title data-lang-key="title"></title>
-  <link rel="stylesheet" href="./assets/css/style.css" />
-</head>
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
 
-<body class="page-fade">
-  <div class="page-content">
-    <div class="video-play-btn" id="videoPlayBtn">
-      <div class="play-btn">
-        <img src="./assets/images/play-btn.png" alt="" />
-      </div>
-      <span data-lang-key="start"></span>
-    </div>
+    <title data-lang-key="title"></title>
 
-    <div class="home-button home-btn">
-      <img src="./assets/images/home-btn.png" alt="" />
-    </div>
+    <link
+      rel="stylesheet"
+      href="./assets/css/style.css"
+    />
+  </head>
 
-    <div class="page-title">
-      <img src="./assets/images/title.png" alt="" />
-      <span data-lang-key="title"></span>
-    </div>
+  <body class="page-fade">
+    <div class="page-content">
+      <!-- Main video play button -->
+      <div
+        class="video-play-btn"
+        id="videoPlayBtn"
+      >
+        <div class="play-btn">
+          <img
+            src="./assets/images/play-btn.png"
+            alt="Play video"
+          />
+        </div>
 
-    <!-- nav-container -->
-    <div class="language-container">
-      <div class="english-button active">E</div>
-      <div class="hindi-button">H</div>
-      <div class="gujrati-button">G</div>
-    </div>
-
-    <div class="left-design">
-      <img src="assets/images/Group 1.png" alt="" />
-    </div>
-
-    <div class="right-design">
-      <img src="assets/images/Group 2.png" class="right-design" alt="" />
-    </div>
-
-    <div class="center">
-      <div class="mandala">
-        <img src="assets/images/mandala.png" alt="" />
+        <span data-lang-key="start"></span>
       </div>
 
-      <div class="flower">
-        <img src="assets/images/design 1.png" alt="" />
+      <!-- Home button -->
+      <div class="home-button home-btn">
+        <img
+          src="./assets/images/home-btn.png"
+          alt="Home"
+        />
       </div>
 
-      <div class="shadow">
-        <img src="./assets/images/shadow.png" alt="" />
+      <!-- Page title -->
+      <div class="page-title">
+        <img
+          src="./assets/images/title.png"
+          alt=""
+        />
+
+        <span data-lang-key="title"></span>
       </div>
 
-      <div class="devi-img">
-        <img src="./assets/images/devi_ 1.png" alt="" />
+      <!-- Language buttons -->
+      <div class="language-container">
+        <div class="english-button active">
+          E
+        </div>
+
+        <div class="hindi-button">
+          H
+        </div>
+
+        <div class="gujrati-button">
+          G
+        </div>
       </div>
 
-      <span data-lang-key="title"></span>
+      <!-- Left decoration -->
+      <div class="left-design">
+        <img
+          src="./assets/images/Group 1.png"
+          alt=""
+        />
+      </div>
+
+      <!-- Right decoration -->
+      <div class="right-design">
+        <img
+          src="./assets/images/Group 2.png"
+          alt=""
+        />
+      </div>
+
+      <!-- Center content -->
+      <div class="center">
+        <div class="mandala">
+          <img
+            src="./assets/images/mandala.png"
+            alt=""
+          />
+        </div>
+
+        <div class="flower">
+          <img
+            src="./assets/images/design 1.png"
+            alt=""
+          />
+        </div>
+
+        <div class="shadow">
+          <img
+            src="./assets/images/shadow.png"
+            alt=""
+          />
+        </div>
+
+        <div class="devi-img">
+          <img
+            src="./assets/images/devi_ 1.png"
+            alt="Devi Saraswati"
+          />
+        </div>
+
+        <span data-lang-key="title"></span>
+      </div>
+
+      <!-- Topics -->
+      <div class="topics">
+        <a
+          href="who-is-devi-saraswati.html?section=1"
+          class="topic-1 topic"
+        >
+          <img
+            src="./assets/images/Group 1321314345.png"
+            alt=""
+          />
+
+          <span data-lang-key="topic-1"></span>
+        </a>
+
+        <a
+          href="who-is-devi-saraswati.html?section=2"
+          class="topic-2 topic"
+        >
+          <img
+            src="./assets/images/Group 1321314345.png"
+            alt=""
+          />
+
+          <span data-lang-key="topic-2"></span>
+        </a>
+
+        <a
+          href="who-is-devi-saraswati.html?section=3"
+          class="topic-3 topic"
+        >
+          <img
+            src="./assets/images/Group 1321314345.png"
+            alt=""
+          />
+
+          <span data-lang-key="topic-3"></span>
+        </a>
+      </div>
     </div>
 
-    <!-- topics -->
-    <div class="topics">
-      <a href="who-is-devi-saraswati.html?section=1" class="topic-1 topic">
-        <img src="./assets/images/Group 1321314345.png" alt="" />
-        <span data-lang-key="topic-1"></span>
-      </a>
+    <!-- Video popup -->
+    <div
+      class="video-overlay"
+      id="videoOverlay"
+    >
+      <div
+        class="video-box"
+        id="videoBox"
+      >
+        <!-- Close button -->
+        <button
+          class="close-video"
+          id="closeVideo"
+          type="button"
+          aria-label="Close video"
+        >
+          <img
+            src="./assets/images/close-btn.png"
+            alt="Close"
+          />
+        </button>
 
-      <a href="who-is-devi-saraswati.html?section=2" class="topic-2 topic">
-        <img src="./assets/images/Group 1321314345.png" alt="" />
-        <span data-lang-key="topic-2"></span>
-      </a>
+        <!--
+          MP4 is recommended because browsers may not
+          properly support MKV files.
 
-      <a href="who-is-devi-saraswati.html?section=3" class="topic-3 topic">
-        <img src="./assets/images/Group 1321314345.png" alt="" />
-        <span data-lang-key="topic-3"></span>
-      </a>
-    </div>
-  </div>
+          Convert:
+          He Sharde Maa.mkv
+          into:
+          He Sharde Maa.mp4
+        -->
+        <video
+          id="popupVideo"
+          loop
+          preload="metadata"
+          playsinline
+        >
+          <source
+            src="./assets/videos/He Sharde Maa.mkv"
+           
+          />
 
-  <div class="video-overlay" id="videoOverlay">
-    <div class="video-box" id="videoBox">
-      <div class="close-video" id="closeVideo">
-        <img src="./assets/images/close-btn.png" alt="" />
+          Your browser does not support the video tag.
+        </video>
+
+        <!-- Video play/pause button -->
+        <button
+          class="custom-video-btn"
+          id="customVideoBtn"
+          type="button"
+          aria-label="Play or pause video"
+        >
+          <img
+            id="videoBtnIcon"
+            src="./assets/images/video-pause-btn.png"
+            alt="Play"
+          />
+        </button>
       </div>
-
-      <video id="popupVideo" loop>
-        <source src="assets/videos/He Sharde Maa.mkv" type="video/mp4" />
-        Your browser does not support the video tag.
-      </video>
-
-      <button class="custom-video-btn" id="customVideoBtn" type="button">
-        <img id="videoBtnIcon" src="./assets/images/video-pause-btn.png" alt="Play" />
-      </button>
     </div>
-  </div>
 
-  <script src="./assets/js/app.js"></script>
+    <script src="./assets/js/app.js"></script>
 
-  <script>
-    const popupVideo = document.getElementById("popupVideo");
-    const customVideoBtn = document.getElementById("customVideoBtn");
-    const videoBtnIcon = document.getElementById("videoBtnIcon");
-    const videoBox = document.getElementById("videoBox");
-    const closeVideo = document.getElementById("closeVideo");
+    <script>
+      // ===== Video Elements =====
+      const popupVideo =
+        document.getElementById("popupVideo");
 
-    const playIcon = "./assets/images/video-pause-btn.png";
+      const customVideoBtn =
+        document.getElementById(
+          "customVideoBtn",
+        );
 
-    // ===== Audio =====
-    const englishAudio = new Audio("./assets/audio/Eng.mpeg");
-    const hindiAudio = new Audio("./assets/audio/Hin.mpeg");
-    const gujratiAudio = new Audio("./assets/audio/Guj.mpeg");
-    const videoPlayAudio = new Audio("./assets/audio/transition/1.mp3");
-    const flowerAudio = new Audio("./assets/audio/transition/5.mp3");
-    const topicAudio = new Audio("./assets/audio/topic_home-btn_back-btn/3.mp3");
-    const homeAudio = new Audio("./assets/audio/pop.mp3");
+      const videoBtnIcon =
+        document.getElementById(
+          "videoBtnIcon",
+        );
 
-    function playAudio(audio) {
-      audio.pause();
-      audio.currentTime = 0;
-      audio.play().catch(function (error) {
-        console.log("Audio play failed:", error);
-      });
-    }
+      const videoBox =
+        document.getElementById("videoBox");
 
-    const englishBtn = document.querySelector(".english-button");
-    const hindiBtn = document.querySelector(".hindi-button");
-    const gujratiBtn = document.querySelector(".gujrati-button");
-    const videoPlayBtn = document.getElementById("videoPlayBtn");
-    const flower = document.querySelector(".flower");
-    const flowerSpan = document.querySelector(".center > span");
-    const topicLinks = document.querySelectorAll(".topic");
-    const homeBtn = document.querySelector(".home-btn");
+      const videoOverlay =
+        document.getElementById(
+          "videoOverlay",
+        );
 
-    if (englishBtn) {
-      englishBtn.addEventListener("click", function () {
-        playAudio(englishAudio);
-      });
-    }
+      const closeVideo =
+        document.getElementById("closeVideo");
 
-    if (hindiBtn) {
-      hindiBtn.addEventListener("click", function () {
-        playAudio(hindiAudio);
-      });
-    }
+      const videoPlayBtn =
+        document.getElementById(
+          "videoPlayBtn",
+        );
 
-    if (gujratiBtn) {
-      gujratiBtn.addEventListener("click", function () {
-        playAudio(gujratiAudio);
-      });
-    }
+      const playIcon =
+        "./assets/images/video-pause-btn.png";
 
-    if (videoPlayBtn) {
-      videoPlayBtn.addEventListener("click", function () {
-        playAudio(videoPlayAudio);
-      });
-    }
+      // ===== Audio Files =====
+      const englishAudio = new Audio(
+        "./assets/audio/Eng.mpeg",
+      );
 
-    if (flower) {
-      flower.style.cursor = "pointer";
+      const hindiAudio = new Audio(
+        "./assets/audio/Hin.mpeg",
+      );
 
-      flower.addEventListener("click", function () {
-        playAudio(flowerAudio);
-      });
-    }
+      const gujratiAudio = new Audio(
+        "./assets/audio/Guj.mpeg",
+      );
 
-    if (flowerSpan) {
-      flowerSpan.style.cursor = "pointer";
+      const videoPlayAudio = new Audio(
+        "./assets/audio/transition/1.mp3",
+      );
 
-      flowerSpan.addEventListener("click", function () {
-        playAudio(flowerAudio);
-      });
-    }
+      const flowerAudio = new Audio(
+        "./assets/audio/transition/5.mp3",
+      );
 
-    // ===== Home Button Audio =====
-    if (homeBtn) {
-      homeBtn.style.cursor = "pointer";
+      const topicAudio = new Audio(
+        "./assets/audio/topic_home-btn_back-btn/3.mp3",
+      );
 
-      homeBtn.addEventListener("click", function (e) {
-        e.preventDefault();
+      const homeAudio = new Audio(
+        "./assets/audio/pop.mp3",
+      );
 
-        playAudio(homeAudio);
+      // ===== Other Elements =====
+      const englishBtn =
+        document.querySelector(
+          ".english-button",
+        );
 
-        setTimeout(function () {
-          window.location.href = "index.html";
-        }, 500);
-      });
-    }
+      const hindiBtn =
+        document.querySelector(
+          ".hindi-button",
+        );
 
-    // ===== Topic Click Audio =====
-    topicLinks.forEach(function (topic) {
-      topic.addEventListener("click", function (e) {
-        e.preventDefault();
+      const gujratiBtn =
+        document.querySelector(
+          ".gujrati-button",
+        );
 
-        const pageLink = topic.getAttribute("href");
+      const flower =
+        document.querySelector(".flower");
 
-        playAudio(topicAudio);
+      const flowerSpan =
+        document.querySelector(
+          ".center > span",
+        );
 
-        setTimeout(function () {
-          window.location.href = pageLink;
-        }, 800);
-      });
-    });
+      const topicLinks =
+        document.querySelectorAll(".topic");
 
-    // keep video paused by default
-    if (popupVideo) {
-      popupVideo.pause();
-    }
+      const homeBtn =
+        document.querySelector(".home-btn");
 
-    function updateVideoState() {
-      if (popupVideo.paused) {
-        videoBtnIcon.src = playIcon;
-        videoBtnIcon.alt = "Play";
-        videoBox.classList.remove("playing");
-      } else {
-        videoBox.classList.add("playing");
+      // ===== Play Audio =====
+      function playAudio(audio) {
+        if (!audio) return;
+
+        audio.pause();
+        audio.currentTime = 0;
+
+        audio
+          .play()
+          .catch(function (error) {
+            console.log(
+              "Audio play failed:",
+              error,
+            );
+          });
       }
-    }
 
-    // play only from button click
-    if (customVideoBtn) {
-      customVideoBtn.addEventListener("click", function (e) {
-        e.stopPropagation();
-        popupVideo.play();
-      });
-    }
-
-    // clicking video pauses it and shows play button
-    if (popupVideo) {
-      popupVideo.addEventListener("click", function () {
-        if (!popupVideo.paused) {
-          popupVideo.pause();
+      // ===== Update Video State =====
+      function updateVideoState() {
+        if (
+          !popupVideo ||
+          !videoBox ||
+          !videoBtnIcon
+        ) {
+          return;
         }
-      });
 
-      popupVideo.addEventListener("play", updateVideoState);
-      popupVideo.addEventListener("pause", updateVideoState);
-    }
+        if (popupVideo.paused) {
+          videoBtnIcon.src = playIcon;
+          videoBtnIcon.alt = "Play";
 
-    if (closeVideo) {
-      closeVideo.addEventListener("click", function () {
+          videoBox.classList.remove(
+            "playing",
+          );
+        } else {
+          videoBtnIcon.alt = "Pause";
+
+          videoBox.classList.add(
+            "playing",
+          );
+        }
+      }
+
+      // ===== Open and Play Video =====
+      function openAndPlayVideo() {
+        if (
+          !popupVideo ||
+          !videoOverlay ||
+          !videoBox
+        ) {
+          return;
+        }
+
+        playAudio(videoPlayAudio);
+
+        // Support both possible CSS class names.
+        videoOverlay.classList.add("show");
+        videoOverlay.classList.add("active");
+
+        videoBox.classList.add("show");
+        videoBox.classList.add("active");
+
+        popupVideo
+          .play()
+          .then(function () {
+            updateVideoState();
+          })
+          .catch(function (error) {
+            console.log(
+              "Video play failed:",
+              error,
+            );
+
+            updateVideoState();
+          });
+      }
+
+      // ===== Close Video Popup =====
+      function closeVideoPopup() {
+        if (
+          !popupVideo ||
+          !videoOverlay ||
+          !videoBox
+        ) {
+          return;
+        }
+
         popupVideo.pause();
         popupVideo.currentTime = 0;
+
+        videoOverlay.classList.remove(
+          "show",
+        );
+
+        videoOverlay.classList.remove(
+          "active",
+        );
+
+        videoBox.classList.remove("show");
+        videoBox.classList.remove(
+          "active",
+        );
+
+        videoBox.classList.remove(
+          "playing",
+        );
+
         updateVideoState();
+      }
+
+      // ===== Main Video Button =====
+      if (videoPlayBtn) {
+        videoPlayBtn.addEventListener(
+          "click",
+          function (event) {
+            event.preventDefault();
+
+            // Prevent another handler in app.js
+            // from immediately pausing the video.
+            event.stopImmediatePropagation();
+
+            openAndPlayVideo();
+          },
+          true,
+        );
+      }
+
+      // ===== Custom Play/Pause Button =====
+      if (customVideoBtn) {
+        customVideoBtn.addEventListener(
+          "click",
+          function (event) {
+            event.preventDefault();
+            event.stopPropagation();
+
+            if (!popupVideo) return;
+
+            if (popupVideo.paused) {
+              popupVideo
+                .play()
+                .catch(function (error) {
+                  console.log(
+                    "Video play failed:",
+                    error,
+                  );
+                });
+            } else {
+              popupVideo.pause();
+            }
+          },
+        );
+      }
+
+      // ===== Video Events =====
+      if (popupVideo) {
+        // Clicking the playing video pauses it.
+        popupVideo.addEventListener(
+          "click",
+          function () {
+            if (!popupVideo.paused) {
+              popupVideo.pause();
+            }
+          },
+        );
+
+        popupVideo.addEventListener(
+          "play",
+          updateVideoState,
+        );
+
+        popupVideo.addEventListener(
+          "pause",
+          updateVideoState,
+        );
+
+        popupVideo.addEventListener(
+          "ended",
+          updateVideoState,
+        );
+
+        popupVideo.addEventListener(
+          "error",
+          function () {
+            console.error(
+              "The video could not be loaded. Check the file path and video format.",
+            );
+          },
+        );
+      }
+
+      // ===== Close Video Button =====
+      if (closeVideo) {
+        closeVideo.addEventListener(
+          "click",
+          function (event) {
+            event.preventDefault();
+            event.stopPropagation();
+
+            closeVideoPopup();
+          },
+        );
+      }
+
+      // Close the popup by clicking outside
+      // the video box.
+      if (videoOverlay) {
+        videoOverlay.addEventListener(
+          "click",
+          function (event) {
+            if (
+              event.target === videoOverlay
+            ) {
+              closeVideoPopup();
+            }
+          },
+        );
+      }
+
+      // ===== Language Audio =====
+      if (englishBtn) {
+        englishBtn.addEventListener(
+          "click",
+          function () {
+            playAudio(englishAudio);
+          },
+        );
+      }
+
+      if (hindiBtn) {
+        hindiBtn.addEventListener(
+          "click",
+          function () {
+            playAudio(hindiAudio);
+          },
+        );
+      }
+
+      if (gujratiBtn) {
+        gujratiBtn.addEventListener(
+          "click",
+          function () {
+            playAudio(gujratiAudio);
+          },
+        );
+      }
+
+      // ===== Flower Audio =====
+      if (flower) {
+        flower.style.cursor = "pointer";
+
+        flower.addEventListener(
+          "click",
+          function () {
+            playAudio(flowerAudio);
+          },
+        );
+      }
+
+      if (flowerSpan) {
+        flowerSpan.style.cursor =
+          "pointer";
+
+        flowerSpan.addEventListener(
+          "click",
+          function () {
+            playAudio(flowerAudio);
+          },
+        );
+      }
+
+      // ===== Home Button =====
+      if (homeBtn) {
+        homeBtn.style.cursor = "pointer";
+
+        homeBtn.addEventListener(
+          "click",
+          function (event) {
+            event.preventDefault();
+
+            playAudio(homeAudio);
+
+            setTimeout(function () {
+              window.location.href =
+                "index.html";
+            }, 500);
+          },
+        );
+      }
+
+      // ===== Topic Links =====
+      topicLinks.forEach(function (topic) {
+        topic.addEventListener(
+          "click",
+          function (event) {
+            event.preventDefault();
+
+            const pageLink =
+              topic.getAttribute("href");
+
+            playAudio(topicAudio);
+
+            setTimeout(function () {
+              window.location.href =
+                pageLink;
+            }, 800);
+          },
+        );
       });
-    }
 
-    updateVideoState();
-  </script>
-</body>
-
+      updateVideoState();
+    </script>
+  </body>
 </html>

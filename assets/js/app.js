@@ -43,10 +43,6 @@ document.addEventListener("DOMContentLoaded", async () => {
   const backToIndexBtn = document.querySelector(".back-to-index");
   const maskImage = document.querySelector(".left-container .mask-image");
   const pageTitle = document.querySelector(".page-title span");
-  const swiperContent = document.querySelector(".swiper-content");
-  const prevBtn1 = document.querySelector(".prev-btn-1");
-  const nextBtn1 = document.querySelector(".next-btn-1");
-  const pagination = document.querySelector(".custom-pagination");
   const backBtn = document.querySelector(".back-btn");
 
   const buttons = {
@@ -66,21 +62,16 @@ document.addEventListener("DOMContentLoaded", async () => {
     DEFAULT_LANG;
 
   let currentSection = 1;
-  let currentSlide = 1;
-  let totalSlides = 1;
 
   const sectionMap = {
     1: {
       titleKey: "topic-1",
-      slides: ["slide-1.1"],
     },
     2: {
       titleKey: "topic-2",
-      slides: ["slide-2.1"],
     },
     3: {
       titleKey: "topic-3",
-      slides: ["slide-3.1"],
     },
   };
 
@@ -111,7 +102,6 @@ document.addEventListener("DOMContentLoaded", async () => {
       firstStageRunning,
       currentLang,
       currentSection,
-      currentSlide,
     };
 
     localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
@@ -198,70 +188,17 @@ document.addEventListener("DOMContentLoaded", async () => {
     const defaultMaskImage = "./assets/images/devi_ 1.png";
     const section3MaskImage = "./assets/images/gif-box-1.png";
 
-    const zoomScale = 1.9;
-    const zoomScale22 = 1.2;
-
     if (currentSection === 3) {
       maskImage.src = section3MaskImage;
-      maskImage.style.opacity = "";
-      maskImage.style.display = "";
-      maskImage.style.transition = "";
-      maskImage.style.transform = "";
-      maskImage.style.transformOrigin = "";
-      return;
+    } else {
+      maskImage.src = defaultMaskImage;
     }
 
-    maskImage.src = defaultMaskImage;
-
-    if (currentSection === 1) {
-      maskImage.style.opacity = "";
-      maskImage.style.display = "";
-      maskImage.style.transition = "";
-      maskImage.style.transform = "";
-      maskImage.style.transformOrigin = "";
-      return;
-    }
-
-    if (currentSection === 2 && currentSlide === 1) {
-      maskImage.style.opacity = "";
-      maskImage.style.display = "";
-      maskImage.style.transition = "";
-      maskImage.style.transform = "";
-      maskImage.style.transformOrigin = "";
-      return;
-    }
-
-    let scale = 1;
-    let originX = "50%";
-    let originY = "50%";
-
-    maskImage.style.opacity = "1";
-    maskImage.style.display = "block";
-    maskImage.style.transition =
-      "transform 0.7s ease, transform-origin 0.7s ease, opacity 0.3s ease";
-
-    if (currentSection === 2) {
-      if (currentSlide === 2) {
-        scale = zoomScale22;
-        originX = "50%";
-        originY = "50%";
-      } else if (currentSlide === 3) {
-        scale = zoomScale;
-        originX = "1%";
-        originY = "20%";
-      } else if (currentSlide === 4) {
-        scale = zoomScale;
-        originX = "100%";
-        originY = "60%";
-      } else if (currentSlide === 5) {
-        scale = zoomScale22;
-        originX = "70%";
-        originY = "100%";
-      }
-    }
-
-    maskImage.style.transformOrigin = `${originX} ${originY}`;
-    maskImage.style.transform = `translate(-50%, -50%) scale(${scale})`;
+    maskImage.style.opacity = "";
+    maskImage.style.display = "";
+    maskImage.style.transition = "";
+    maskImage.style.transform = "";
+    maskImage.style.transformOrigin = "";
   }
 
   function openVideo() {
@@ -336,7 +273,6 @@ document.addEventListener("DOMContentLoaded", async () => {
       DEFAULT_LANG;
 
     currentSection = sectionFromURL || state?.currentSection || 1;
-    currentSlide = sectionFromURL ? 1 : state?.currentSlide || 1;
 
     if (!pageContent || !center) return;
 
@@ -376,7 +312,6 @@ document.addEventListener("DOMContentLoaded", async () => {
     currentLang = localStorage.getItem(LANG_KEY) || currentLang || DEFAULT_LANG;
 
     currentSection = 1;
-    currentSlide = 1;
 
     if (center) {
       center.classList.remove("animate", "restored-stage-1");
@@ -415,74 +350,15 @@ document.addEventListener("DOMContentLoaded", async () => {
       firstStageRunning: false,
       currentLang,
       currentSection,
-      currentSlide,
     };
 
     localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
     localStorage.setItem(LANG_KEY, currentLang);
   }
 
-  function createPagination() {
-    if (!pagination) return;
-
-    pagination.innerHTML = "";
-
-    if (totalSlides <= 1) return;
-
-    for (let i = 1; i <= totalSlides; i++) {
-      const bullet = document.createElement("span");
-      bullet.className = "pagination-bullet";
-
-      if (i === currentSlide) {
-        bullet.classList.add("active");
-      }
-
-      bullet.addEventListener("click", () => {
-        currentSlide = i;
-        renderSectionContent();
-        saveState();
-      });
-
-      pagination.appendChild(bullet);
-    }
-  }
-
-  function updateNavButtons() {
-    const section = sectionMap[currentSection];
-    if (!section) return;
-
-    const isTopic3LastSlide =
-      currentSection === 3 && currentSlide === section.slides.length;
-
-    if (prevBtn1) {
-      if (currentSection === 1 && currentSlide === 1) {
-        prevBtn1.classList.remove("show");
-      } else {
-        prevBtn1.classList.add("show");
-      }
-    }
-
-    if (nextBtn1) {
-      if (
-        currentSlide < section.slides.length ||
-        isTopic3LastSlide ||
-        currentSection < 3
-      ) {
-        nextBtn1.classList.add("show");
-      } else {
-        nextBtn1.classList.remove("show");
-      }
-    }
-  }
-
   function renderSectionContent() {
     const section = sectionMap[currentSection];
     if (!section) return;
-
-    totalSlides = section.slides.length;
-
-    if (currentSlide > totalSlides) currentSlide = totalSlides;
-    if (currentSlide < 1) currentSlide = 1;
 
     if (pageTitle) {
       const titleText = getTranslation(currentLang, section.titleKey);
@@ -490,55 +366,7 @@ document.addEventListener("DOMContentLoaded", async () => {
       pageTitle.innerHTML = titleText;
     }
 
-    if (swiperContent) {
-      const slideKey = section.slides[currentSlide - 1];
-      swiperContent.setAttribute("data-lang-key", slideKey);
-      swiperContent.innerHTML = getTranslation(currentLang, slideKey);
-    }
-
-    createPagination();
-    updateNavButtons();
     updateMaskImageFocus();
-  }
-
-  function goNext() {
-    const section = sectionMap[currentSection];
-    if (!section) return;
-
-    if (currentSection === 3 && currentSlide === section.slides.length) {
-      saveCurrentVisualStateBeforeLeaving();
-      document.body.classList.add("page-exit");
-
-      setTimeout(() => {
-        window.location.href = "pranam.html";
-      }, 350);
-
-      return;
-    }
-
-    if (currentSlide < section.slides.length) {
-      currentSlide++;
-    } else if (currentSection < 3) {
-      currentSection++;
-      currentSlide = 1;
-    }
-
-    renderSectionContent();
-    saveState();
-  }
-
-  function goPrev() {
-    if (currentSection === 1 && currentSlide === 1) return;
-
-    if (currentSlide > 1) {
-      currentSlide--;
-    } else if (currentSection > 1) {
-      currentSection--;
-      currentSlide = sectionMap[currentSection].slides.length;
-    }
-
-    renderSectionContent();
-    saveState();
   }
 
   function goToPage(href) {
@@ -553,19 +381,18 @@ document.addEventListener("DOMContentLoaded", async () => {
     }, 350);
   }
 
-  if (backBtn) {
-    backBtn.addEventListener("click", (e) => {
-      e.preventDefault();
+if (backBtn) {
+  backBtn.addEventListener("click", function (e) {
+    e.preventDefault();
 
-      saveCurrentVisualStateBeforeLeaving();
+    playAudio(homeAudio);
 
-      currentSection = 3;
-      currentSlide = 1;
-      saveState();
-
-      goToPage("who-is-devi-saraswati.html?section=3");
-    });
-  }
+    setTimeout(function () {
+      window.location.href =
+        "who-is-devi-saraswati.html?section=3";
+    }, 500);
+  });
+}
 
   if (videoPlayBtn) videoPlayBtn.addEventListener("click", openVideo);
   if (closeVideo) closeVideo.addEventListener("click", closeVideoPopup);
@@ -621,9 +448,6 @@ document.addEventListener("DOMContentLoaded", async () => {
     });
   }
 
-  if (prevBtn1) prevBtn1.addEventListener("click", goPrev);
-  if (nextBtn1) nextBtn1.addEventListener("click", goNext);
-
   if (buttons.English) {
     buttons.English.addEventListener("click", () => updateLanguage("English"));
   }
@@ -669,7 +493,6 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   if (sectionFromURL) {
     currentSection = sectionFromURL;
-    currentSlide = 1;
   }
 
   const savedLang =
