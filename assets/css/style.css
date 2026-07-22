@@ -1094,3 +1094,88 @@ body.page-fade.page-exit {
   }
 }
 
+/* =========================================
+   Restore saved transition without replaying
+   ========================================= */
+
+html.restoring-state *,
+html.restoring-state *::before,
+html.restoring-state *::after {
+  animation: none !important;
+  transition: none !important;
+}
+
+/* Prevent page fade animation when returning */
+html.restored-page-state body.page-fade {
+  opacity: 1 !important;
+  animation: none !important;
+}
+
+/* Stage 1: main design transition completed */
+.page-content.restored-stage-1 .video-play-btn {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.page-content.restored-stage-1 .home-btn {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.page-content.restored-stage-1 .page-title {
+  opacity: 1;
+}
+
+.page-content.restored-stage-1 .left-design {
+  transform: translateY(-50%) translateX(-15vw);
+}
+
+.page-content.restored-stage-1 .right-design {
+  transform: translateY(-50%) translateX(15vw);
+}
+
+.center.restored-stage-1 {
+  transform: translate(-50%, -50%) scale(1.4);
+}
+
+.center.restored-stage-1 .mandala img {
+  transform: rotate(-180deg);
+}
+
+.center.restored-stage-1 .flower img {
+  transform: rotate(180deg);
+}
+
+.center.restored-stage-1 span {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.center.restored-stage-1 .devi-img {
+  opacity: 1;
+}
+
+/* Stage 2: topics displayed */
+.page-content.restored-stage-2 .center {
+  left: 25%;
+  top: 50%;
+  transform: translate(-50%, -50%) scale(0.7);
+}
+
+.page-content.restored-stage-2 .right-design {
+  transform: translateY(-50%) translateX(0);
+}
+
+.page-content.restored-stage-2 .topics {
+  pointer-events: auto;
+}
+
+.page-content.restored-stage-2 .topic {
+  opacity: 1;
+  transform: translateX(0);
+  pointer-events: auto;
+}
+
+.page-content.restored-stage-2 .topic:hover {
+  transform: translateX(0) scale(1.15);
+}

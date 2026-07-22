@@ -332,6 +332,25 @@
     <script src="./assets/js/topic-slider.js"></script>
 
     <script>
+      // This topic page is opened only after the index reaches its final
+      // topics stage. Keep that stage saved for every way of returning.
+      const SARASWATI_INDEX_TRANSITION_KEY =
+        "deviSaraswatiIndexTransitionStage";
+
+      function preserveIndexFinalStage() {
+        localStorage.setItem(
+          SARASWATI_INDEX_TRANSITION_KEY,
+          "2",
+        );
+      }
+
+      preserveIndexFinalStage();
+
+      window.addEventListener(
+        "pagehide",
+        preserveIndexFinalStage,
+      );
+
       // Audio files
       const englishAudio = new Audio(
         "./assets/audio/Eng.mpeg",
@@ -414,6 +433,12 @@
       }
 
       if (homeBtn) {
+        homeBtn.addEventListener(
+          "click",
+          preserveIndexFinalStage,
+          true,
+        );
+
         homeBtn.addEventListener("click", (event) => {
           event.preventDefault();
 
@@ -426,6 +451,12 @@
       }
 
       if (backToIndexBtn) {
+        backToIndexBtn.addEventListener(
+          "click",
+          preserveIndexFinalStage,
+          true,
+        );
+
         backToIndexBtn.addEventListener(
           "click",
           (event) => {

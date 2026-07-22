@@ -45,6 +45,13 @@ document.addEventListener("DOMContentLoaded", async () => {
   const pageTitle = document.querySelector(".page-title span");
   const backBtn = document.querySelector(".back-btn");
 
+  // Only the main index page contains both of these elements.
+  // A home button on a topic page must return without resetting animations.
+  const isIndexPage = Boolean(
+    document.querySelector(".topics") &&
+      document.querySelector(".center"),
+  );
+
   const buttons = {
     English: document.querySelector(".english-button"),
     Hindi: document.querySelector(".hindi-button"),
@@ -432,7 +439,14 @@ if (backBtn) {
   homeBtns.forEach((homeBtn) => {
     homeBtn.addEventListener("click", (e) => {
       e.preventDefault();
-      resetTransitions();
+
+      if (isIndexPage) {
+        // Reset only when the home button belongs to index.html itself.
+        resetTransitions();
+      } else {
+        // Topic-page home buttons must preserve the completed index stage.
+        saveCurrentVisualStateBeforeLeaving();
+      }
 
       const homeHref = homeBtn.getAttribute("href");
       if (homeHref) goToPage(homeHref);
@@ -472,7 +486,11 @@ if (backBtn) {
         link.classList.contains("home-btn") ||
         link.classList.contains("home-btn-1")
       ) {
-        resetTransitions();
+        if (isIndexPage) {
+          resetTransitions();
+        } else {
+          saveCurrentVisualStateBeforeLeaving();
+        }
       } else {
         saveCurrentVisualStateBeforeLeaving();
       }

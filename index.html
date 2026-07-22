@@ -3,6 +3,36 @@
   <head>
     <meta charset="UTF-8" />
 
+    <script>
+      // Keep the completed entrance transition when returning to this page.
+      // This runs before the page is drawn, so the transition does not flash
+      // or restart while coming back from a topic page.
+      const INDEX_TRANSITION_KEY =
+        "deviSaraswatiIndexTransitionCompleted";
+
+      if (
+        localStorage.getItem(
+          INDEX_TRANSITION_KEY,
+        ) === "true"
+      ) {
+        document.documentElement.classList.add(
+          "restore-index-transition",
+        );
+      }
+    </script>
+
+    <style>
+      /* Show every entrance animation in its final state on a return visit. */
+      .restore-index-transition *,
+      .restore-index-transition *::before,
+      .restore-index-transition *::after {
+        animation-duration: 0.001s !important;
+        animation-delay: -999s !important;
+        transition-duration: 0s !important;
+        transition-delay: 0s !important;
+      }
+    </style>
+
     <meta
       name="viewport"
       content="width=device-width, initial-scale=1.0"
@@ -310,6 +340,13 @@
       const homeBtn =
         document.querySelector(".home-btn");
 
+      // Remember that this page's entrance transition has already run.
+      // Topic-page navigation does not clear this value.
+      localStorage.setItem(
+        INDEX_TRANSITION_KEY,
+        "true",
+      );
+
       // ===== Play Audio =====
       function playAudio(audio) {
         if (!audio) return;
@@ -588,6 +625,11 @@
           "click",
           function (event) {
             event.preventDefault();
+
+            // Only this page's home button resets the saved transition.
+            localStorage.removeItem(
+              INDEX_TRANSITION_KEY,
+            );
 
             playAudio(homeAudio);
 
