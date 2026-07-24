@@ -68,17 +68,18 @@ body {
 
 .video-play-btn {
   position: fixed;
-  top: 5%;
-  left: 4%;
+  top: 2vw;
+  left: 4vw;
+  width: 14vw;
+  height: 5vw;
   display: flex;
   align-items: center;
   justify-content: space-around;
-  width: auto;
-  height: auto;
   background-color: transparent;
-  border: 0.2vw solid #821B00;
-  border-radius: 50vw;
-  padding: 0.2vw 0.2vw;
+background-image: url("./../images/watch.png");
+background-position: center;
+background-repeat: no-repeat;
+background-size: contain;
   cursor: pointer;
   pointer-events: auto;
   z-index: 1000;
@@ -88,38 +89,20 @@ body {
 }
 
 .video-play-btn span {
-  font-weight: 700;
-  font-family: "BalooRegular";
-  color: #821B00;
-  font-size: 1.7vw;
+  font-weight: 400;
+  font-family: "BerkshireSwash";
+  color: #ffffff;
+  font-size: 1.6vw;
   text-align: center;
+  width: 100%;
+  text-align: end;
+  padding-right: 0.8vw;
 }
 
-.play-btn {
-  border-radius: 50vw;
-  width: 2.5vw;
-  height: 2.5vw;
-  background-color: #821B00;
-  display: flex;
-  justify-content: center;
+body[data-lang="hi"] .video-play-btn span{
+  font-size: 2vw!important;
 }
 
-.play-btn img {
-  width: 35%;
-  object-fit: contain;
-}
-
-.video-play-btn:hover {
-  border: 0.2vw solid white;
-}
-
-.video-play-btn:hover .play-btn {
-  background-color: white;
-}
-
-.video-play-btn:hover.video-play-btn span {
-  color: white !important;
-}
 
 .page-content {
   /* position: relative; */
