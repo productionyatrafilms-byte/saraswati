@@ -1007,10 +1007,28 @@ html.restoring-state *::after {
   width: 100%;
 }
 
+.pranam-video{
+  position: absolute;
+  left: 51%;
+  top: 48%;
+  transform: translate(-50%,-50%);
+  width: 28vw;
+  height: 28vw;
+  border-radius: 50%;
+  background-color: white;
+}
+
+.pranam-video video{
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
 .pranam-img span {
   z-index: 15;
   position: absolute;
-  top: 17%;
+  top: 0%;
   left: 50%;
   font-size: 3.4vw;
   transform: translateX(-50%);
