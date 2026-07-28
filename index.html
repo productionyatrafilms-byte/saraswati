@@ -65,15 +65,7 @@
       </div>
 
       <!-- Page title -->
-      <div class="page-title">
-        <img
-          src="./assets/images/title.png"
-          alt=""
-        />
-
-        <span data-lang-key="title"></span>
-      </div>
-
+      
       <!-- Language buttons -->
       <div class="language-container">
         <div class="english-button active">
@@ -224,7 +216,7 @@
         </video>
 
         <!-- Video play/pause button -->
-        <button
+        <!-- <button
           class="custom-video-btn"
           id="customVideoBtn"
           type="button"
@@ -235,7 +227,7 @@
             src="./assets/images/video-pause-btn.png"
             alt="Play"
           />
-        </button>
+        </button> -->
       </div>
     </div>
 
@@ -476,29 +468,23 @@
         );
       }
 
-      // ===== Custom Play/Pause Button =====
+      // ===== Custom Pause Button =====
       if (customVideoBtn) {
         customVideoBtn.addEventListener(
           "click",
           function (event) {
             event.preventDefault();
-            event.stopPropagation();
+
+            // Prevent any other click handler from
+            // playing the video again.
+            event.stopImmediatePropagation();
 
             if (!popupVideo) return;
 
-            if (popupVideo.paused) {
-              popupVideo
-                .play()
-                .catch(function (error) {
-                  console.log(
-                    "Video play failed:",
-                    error,
-                  );
-                });
-            } else {
-              popupVideo.pause();
-            }
+            popupVideo.pause();
+            updateVideoState();
           },
+          true,
         );
       }
 

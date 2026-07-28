@@ -344,6 +344,35 @@
         );
       }
 
+      // Keep the index page title on topic-1 when returning
+      // from this topic page.
+      function resetIndexSectionBeforeReturn() {
+        const INDEX_STATE_KEY = "saraswatiPageState";
+
+        try {
+          const savedState = JSON.parse(
+            localStorage.getItem(INDEX_STATE_KEY) || "{}",
+          );
+
+          savedState.currentSection = 1;
+          savedState.firstAnimationDone = true;
+          savedState.secondAnimationDone = true;
+          savedState.firstStageRunning = false;
+
+          localStorage.setItem(
+            INDEX_STATE_KEY,
+            JSON.stringify(savedState),
+          );
+        } catch (error) {
+          console.error(
+            "Unable to update the index page state:",
+            error,
+          );
+        }
+
+        preserveIndexFinalStage();
+      }
+
       preserveIndexFinalStage();
 
       window.addEventListener(
@@ -453,21 +482,18 @@
       if (backToIndexBtn) {
         backToIndexBtn.addEventListener(
           "click",
-          preserveIndexFinalStage,
-          true,
-        );
-
-        backToIndexBtn.addEventListener(
-          "click",
           (event) => {
             event.preventDefault();
+            event.stopImmediatePropagation();
 
+            resetIndexSectionBeforeReturn();
             playAudio(backAudio);
 
             setTimeout(() => {
               window.location.href = "index.html";
             }, 800);
           },
+          true,
         );
       }
 

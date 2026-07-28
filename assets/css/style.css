@@ -587,7 +587,6 @@ body[data-lang="gu"] .center span{
   pointer-events: auto;
 }
 
-
 .page-content.topic-show .topics,
 .page-content.restored-stage-2 .topics {
   pointer-events: auto;   /* new — re-enable once topics are shown */
@@ -622,7 +621,6 @@ body[data-lang="gu"] .center span{
 }
 
 
-
 .topic span {
   color: white;
   font-weight: 700;
@@ -635,6 +633,12 @@ body[data-lang="gu"] .center span{
   transform: translate(-50%, -50%);
   text-align: center;
 }
+
+body[data-lang="gu"] .topic span{
+  font-size: 1.5vw!important;
+  line-height: 2.4vw!important;
+}
+
 
 
 .page-content.topic-show .right-design {
