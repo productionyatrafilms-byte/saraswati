@@ -44,7 +44,6 @@ document.addEventListener("DOMContentLoaded", async () => {
   const maskImage = document.querySelector(".left-container .mask-image");
   const pageTitle = document.querySelector(".page-title span");
   const backBtn = document.querySelector(".back-btn");
-
   // Only the main index page contains both of these elements.
   // A home button on a topic page must return without resetting animations.
   const isIndexPage = Boolean(
@@ -81,6 +80,28 @@ document.addEventListener("DOMContentLoaded", async () => {
       titleKey: "topic-3",
     },
   };
+
+  // ================= LANDSCAPE ALERT =================
+
+let landscapeAlertShown = false;
+
+function checkScreenSize() {
+  const isMobile =
+    /Android|iPhone|iPad|iPod|Mobile/i.test(navigator.userAgent);
+
+  if (isMobile && window.innerWidth < 768) {
+    if (!landscapeAlertShown) {
+      landscapeAlertShown = true;
+      alert("Please use Landscape!");
+    }
+  } else {
+    landscapeAlertShown = false;
+  }
+}
+
+window.addEventListener("load", checkScreenSize);
+window.addEventListener("resize", checkScreenSize);
+
 
   function revealPage() {
     html.classList.remove("lang-loading");
