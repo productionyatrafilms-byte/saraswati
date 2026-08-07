@@ -267,11 +267,9 @@
       const playIcon =
         "./assets/images/video-pause-btn.png";
 
-      // ===== Strict Video Seeking Control =====
-      // The user may seek backward, but cannot jump ahead
-      // beyond the furthest point already watched.
-      let maximumWatchedTime = 0;
-      let isBlockingForwardSeek = false;
+      // Note: seeking is no longer restricted.
+      // The user can freely move both forward and
+      // backward through the video.
 
       // ===== Audio Files =====
       const englishAudio = new Audio(
@@ -428,8 +426,6 @@
 
         popupVideo.pause();
         popupVideo.currentTime = 0;
-        maximumWatchedTime = 0;
-        isBlockingForwardSeek = false;
 
         videoOverlay.classList.remove(
           "show",
@@ -490,47 +486,6 @@
 
       // ===== Video Events =====
       if (popupVideo) {
-        // Save the furthest point reached through normal playback.
-        popupVideo.addEventListener(
-          "timeupdate",
-          function () {
-            if (
-              !popupVideo.seeking &&
-              popupVideo.currentTime >
-                maximumWatchedTime
-            ) {
-              maximumWatchedTime =
-                popupVideo.currentTime;
-            }
-          },
-        );
-
-        // Allow backward seeking, but strictly block forward seeking.
-        popupVideo.addEventListener(
-          "seeking",
-          function () {
-            if (
-              isBlockingForwardSeek ||
-              popupVideo.currentTime <=
-                maximumWatchedTime + 0.15
-            ) {
-              return;
-            }
-
-            isBlockingForwardSeek = true;
-            popupVideo.currentTime =
-              maximumWatchedTime;
-
-            window.setTimeout(
-              function () {
-                isBlockingForwardSeek =
-                  false;
-              },
-              0,
-            );
-          },
-        );
-
         // Clicking the playing video pauses it.
         popupVideo.addEventListener(
           "click",

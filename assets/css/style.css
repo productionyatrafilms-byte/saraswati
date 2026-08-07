@@ -333,6 +333,10 @@ body[data-lang="gu"] .center span{
   font-weight: bolder!important;
 }
 
+body[data-lang="hi"] .center span{
+  line-height: 8vw!important;
+}
+
 
 .page-content.design-animate .page-title,
 .page-content.restored-stage-1 .page-title,
@@ -1014,7 +1018,7 @@ html.restoring-state *::after {
 .pranam-video{
   position: absolute;
   left: 51%;
-  top: 48%;
+  top: 48.5%;
   transform: translate(-50%,-50%);
   width: 28vw;
   height: 28vw;
