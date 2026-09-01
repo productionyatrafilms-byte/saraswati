@@ -110,13 +110,7 @@ window.addEventListener("resize", checkScreenSize);
 
   async function loadTranslations() {
     try {
-      const response = await fetch("./assets/json/data.json", {
-        cache: "no-store",
-      });
-
-      if (!response.ok) throw new Error("JSON file not found");
-
-      translations = await response.json();
+      translations = typeof data !== "undefined" ? data : {};
     } catch (error) {
       console.error("Error loading translations:", error);
       translations = {};

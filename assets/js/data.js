@@ -1,0 +1,39 @@
+const data = {
+  "English": {
+    "title": "Devi Saraswati",
+    "start": "Watch Video",
+
+    "topic-2": "How to identify her?",
+    "topic-3": "How should we worship her?",
+    "topic-1":"Who is Devi Saraswati?",
+    "slide-1.1": "Devi Saraswati is goddess of knowledge, music, art, wisdom and learning",
+    "slide-2.1": "She carries Veena, Mala, Aagam book & is often seated on a white Lotus",
+    "slide-3.1": "We must chant \"Om Aim Namah\" Jaap for 5 minutes every day to bring progress in our knowledge.",
+    "pranam": "Pranam",
+    "home": "Home"
+  },
+  "Hindi": {
+    "title": "देवी सरस्वती",
+    "start": "वीडियो देखें",
+    "topic-2": "उन्हें कैसे पहचानें?",
+    "topic-3": "हम उनकी पूजा कैसे करें?",
+    "topic-1":"देवी सरस्वती कौन हैं?",
+    "slide-1.1": "देवी सरस्वती ज्ञान, संगीत, कला, बुद्धि और शिक्षा की देवी हैं।",
+    "slide-2.1": "उनके हाथों में वीणा, माला, आगम पुस्तक होते हैं और वे अक्सर सफ़ेद कमल पर बिराजते हैं।",
+    "slide-3.1": "बुद्धि और ज्ञान के विकास हेतु हमें \"ॐ ऐँ नमः\" का जप प्रतिदिन ५ मिनट करना चाहिए। ",
+    "pranam": "प्रणाम",
+    "home": "होम"
+  },
+  "Gujarati": {
+    "title": "સરસ્વતી દેવી",
+    "start": "વિડિયો જુઓ",
+    "topic-2": "એમને કેવી રીતે ઓળખવા?",
+    "topic-3": "આપણે એમની પૂજા કેવી રીતે કરી શકીએ ?",
+    "topic-1":"સરસ્વતી દેવી કોણ છે?",
+    "slide-1.1": "દેવી સરસ્વતી જ્ઞાન, સંગીત, કલા, બુદ્ધિ અને શિક્ષણની દેવી છે.",
+    "slide-2.1": "એમના હાથમાં વીણા, માળા, આગમ, પુસ્તક હોય છે અને તેઓ હંમેશા સફેદ કમળ પર બિરાજે છે. ",
+    "slide-3.1": "બુદ્ધિ અને જ્ઞાન ના વિકાસ માટે આપણે ૐ ऐँ  નમઃ નો પ્રતિદિન 5 મિનિટ જાપ કરવો જોઈએ.",
+    "pranam": "પ્રણામ",
+    "home": "હોમ"
+  }
+};
