@@ -14,31 +14,43 @@
       rel="stylesheet"
       href="./assets/css/style.css"
     />
-     <link rel="stylesheet" href="./fontawesome/css/all.min.css" />
+     <link rel="stylesheet" href="./fontawesome/css/fontawesome.min.css" />
+     <link rel="stylesheet" href="./fontawesome/css/solid.min.css" />
     <link
       rel="stylesheet"
       href="./assets/css/swiper-bundle.min.js"
     />
 
     <style>
+      html,
+      body {
+        overflow: hidden;
+      }
+
       .home-btn {
         position: fixed;
         top: 3vw;
         left: 3vw;
         width: 3.5vw;
+        height: 3.5vw;
         z-index: 9999;
         opacity: 1;
-        transition: transform 0.2s ease;
+        border-radius: 50%;
+        background-color: #821b00;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: transform 0.2s ease, background-color 0.2s ease;
       }
 
       .home-btn img {
         display: block;
-        width: 100%;
+        width: 50%;
         height: auto;
       }
 
       .home-btn:hover {
-        opacity: 1;
+        background-color: #fff;
         transform: scale(1.15);
       }
 
@@ -211,14 +223,14 @@
   </head>
 
   <body class="page-fade">
-    <!-- Home button -->
+    <!-- Back button -->
     <a
       href="index.html"
       class="home-btn home-button"
     >
       <img
-        src="./assets/images/home-btn.png"
-        alt="Home"
+        src="./assets/images/prev-btn.png"
+        alt="Back"
       />
     </a>
 
@@ -277,16 +289,6 @@
             />
           </div>
         </div>
-
-        <a
-          href="index.html"
-          class="prev-btn back-to-index"
-        >
-          <img
-            src="./assets/images/prev-btn.png"
-            alt="Back"
-          />
-        </a>
       </div>
 
       <div class="right-container">
@@ -398,10 +400,6 @@
         "./assets/audio/pop.mp3",
       );
 
-      const backAudio = new Audio(
-        "./assets/audio/topic_home-btn_back-btn/3.mp3",
-      );
-
       const swipeAudio = new Audio(
         "./assets/audio/swipe/1.mp3",
       );
@@ -431,9 +429,6 @@
 
       const homeBtn =
         document.querySelector(".home-btn");
-
-      const backToIndexBtn =
-        document.querySelector(".back-to-index");
 
       const nextBtn =
         document.querySelector(".next-btn-1");
@@ -465,7 +460,7 @@
       if (homeBtn) {
         homeBtn.addEventListener(
           "click",
-          preserveIndexFinalStage,
+          resetIndexSectionBeforeReturn,
           true,
         );
 
@@ -478,24 +473,6 @@
             window.location.href = "index.html";
           }, 500);
         });
-      }
-
-      if (backToIndexBtn) {
-        backToIndexBtn.addEventListener(
-          "click",
-          (event) => {
-            event.preventDefault();
-            event.stopImmediatePropagation();
-
-            resetIndexSectionBeforeReturn();
-            playAudio(backAudio);
-
-            setTimeout(() => {
-              window.location.href = "index.html";
-            }, 800);
-          },
-          true,
-        );
       }
 
       if (nextBtn) {

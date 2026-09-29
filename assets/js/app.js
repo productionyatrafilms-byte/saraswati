@@ -40,7 +40,6 @@ document.addEventListener("DOMContentLoaded", async () => {
   const flower = document.querySelector(".flower");
   const centerSpan = document.querySelector(".center span");
   const homeBtns = document.querySelectorAll(".home-btn, .home-btn-1");
-  const backToIndexBtn = document.querySelector(".back-to-index");
   const maskImage = document.querySelector(".left-container .mask-image");
   const pageTitle = document.querySelector(".page-title span");
   const backBtn = document.querySelector(".back-btn");
@@ -467,15 +466,6 @@ if (backBtn) {
       if (homeHref) goToPage(homeHref);
     });
   });
-
-  if (backToIndexBtn) {
-    backToIndexBtn.addEventListener("click", (e) => {
-      e.preventDefault();
-
-      const href = backToIndexBtn.getAttribute("href");
-      if (href) goToPage(href);
-    });
-  }
 
   if (buttons.English) {
     buttons.English.addEventListener("click", () => updateLanguage("English"));
