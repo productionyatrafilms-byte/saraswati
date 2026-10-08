@@ -351,7 +351,7 @@ document.addEventListener(
         maskImage.alt = "Section 3";
       } else {
         maskImage.src =
-          "./assets/images/devi_ 1.png";
+          "./assets/images/devi-1.png";
 
         maskImage.alt = "Devi Saraswati";
       }

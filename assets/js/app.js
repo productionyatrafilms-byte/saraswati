@@ -206,7 +206,7 @@ window.addEventListener("resize", checkScreenSize);
   function updateMaskImageFocus() {
     if (!maskImage) return;
 
-    const defaultMaskImage = "./assets/images/devi_ 1.png";
+    const defaultMaskImage = "./assets/images/devi-1.png";
     const section3MaskImage = "./assets/images/gif-box-1.png";
 
     if (currentSection === 3) {
