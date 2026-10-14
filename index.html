@@ -10,6 +10,26 @@
       const INDEX_TRANSITION_KEY =
         "deviSaraswatiIndexTransitionCompleted";
 
+      // Saved progress only counts within the same browser tab session, so
+      // a fresh visit always starts from the beginning.
+      const INDEX_SESSION_KEY =
+        "deviSaraswatiIndexSession";
+
+      try {
+        if (
+          sessionStorage.getItem(
+            INDEX_SESSION_KEY,
+          ) !== "true"
+        ) {
+          localStorage.removeItem(
+            INDEX_TRANSITION_KEY,
+          );
+          localStorage.removeItem(
+            "saraswatiPageState",
+          );
+        }
+      } catch (error) {}
+
       if (
         localStorage.getItem(
           INDEX_TRANSITION_KEY,
@@ -881,6 +901,12 @@
         INDEX_TRANSITION_KEY,
         "true",
       );
+      try {
+        sessionStorage.setItem(
+          INDEX_SESSION_KEY,
+          "true",
+        );
+      } catch (error) {}
 
       // ===== Play Audio =====
       function playAudio(audio) {

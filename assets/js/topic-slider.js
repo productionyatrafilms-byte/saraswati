@@ -344,16 +344,19 @@ document.addEventListener(
     function updateSectionImage() {
       if (!maskImage) return;
 
-      if (currentSection === 3) {
-        maskImage.src =
-          "./assets/images/gif-box-1.png";
+      const videoSrc =
+        currentSection === 3
+          ? "./assets/videos/chanting.mp4"
+          : "./assets/videos/devi.mp4";
 
-        maskImage.alt = "Section 3";
-      } else {
-        maskImage.src =
-          "./assets/images/devi-1.png";
+      // Only swap when the video changes so slides 1 and 2
+      // keep playing without restarting.
+      if (!maskImage.src.endsWith(videoSrc.slice(2))) {
+        maskImage.src = videoSrc;
+      }
 
-        maskImage.alt = "Devi Saraswati";
+      if (maskImage.paused) {
+        maskImage.play().catch(() => {});
       }
     }
 

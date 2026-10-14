@@ -206,13 +206,13 @@ window.addEventListener("resize", checkScreenSize);
   function updateMaskImageFocus() {
     if (!maskImage) return;
 
-    const defaultMaskImage = "./assets/images/devi-1.png";
-    const section3MaskImage = "./assets/images/gif-box-1.png";
+    const defaultMaskImage = "./assets/videos/devi.mp4";
+    const section3MaskImage = "./assets/videos/chanting.mp4";
 
-    if (currentSection === 3) {
-      maskImage.src = section3MaskImage;
-    } else {
-      maskImage.src = defaultMaskImage;
+    const target = currentSection === 3 ? section3MaskImage : defaultMaskImage;
+
+    if (!maskImage.src.endsWith(target.slice(2))) {
+      maskImage.src = target;
     }
 
     maskImage.style.opacity = "";
