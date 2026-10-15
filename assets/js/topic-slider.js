@@ -347,10 +347,12 @@ document.addEventListener(
       const videoSrc =
         currentSection === 3
           ? "./assets/videos/chanting.mp4"
-          : "./assets/videos/devi.mp4";
+          : currentSection === 2
+            ? "./assets/videos/2.mp4"
+            : "./assets/videos/devi.mp4";
 
-      // Only swap when the video changes so slides 1 and 2
-      // keep playing without restarting.
+      // Only swap when the video changes so it doesn't restart
+      // on language change.
       if (!maskImage.src.endsWith(videoSrc.slice(2))) {
         maskImage.src = videoSrc;
       }

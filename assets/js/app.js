@@ -209,7 +209,12 @@ window.addEventListener("resize", checkScreenSize);
     const defaultMaskImage = "./assets/videos/devi.mp4";
     const section3MaskImage = "./assets/videos/chanting.mp4";
 
-    const target = currentSection === 3 ? section3MaskImage : defaultMaskImage;
+    const target =
+      currentSection === 3
+        ? section3MaskImage
+        : currentSection === 2
+          ? "./assets/videos/2.mp4"
+          : defaultMaskImage;
 
     if (!maskImage.src.endsWith(target.slice(2))) {
       maskImage.src = target;
