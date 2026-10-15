@@ -269,6 +269,9 @@ window.addEventListener("resize", checkScreenSize);
       firstStageRunning = false;
       disableFirstClickTargets();
       saveState();
+
+      // Reveal the topics automatically once the first animation ends.
+      animateSecondStage();
     }, 1200);
   }
 
