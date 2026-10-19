@@ -94,7 +94,8 @@
         border-radius: 50%;
         background: #821b00;
         color: #fff;
-        font-family: inherit;
+        /* digits always use the English font, in every language */
+        font-family: "BalooRegular", sans-serif;
         font-size: 1.6vw;
         font-weight: 700;
         line-height: 1;
@@ -131,6 +132,15 @@
         visibility: hidden;
         pointer-events: none;
         transition: opacity 0.2s ease;
+      }
+
+      /* tooltip text follows the selected language's font */
+      body[data-lang="hi"] .topic-switch-btn::after {
+        font-family: "ITFDevanagari", sans-serif;
+      }
+
+      body[data-lang="gu"] .topic-switch-btn::after {
+        font-family: "NotoSansGujaratiRegular", sans-serif;
       }
 
       .topic-switch-btn:hover::after,
@@ -219,9 +229,10 @@
 
       /* Pranam link */
       .pranam-link {
-        position: fixed;
+        position: absolute;
         right: 2vw;
-        bottom: 2vw;
+        /* centred on the same line as the 1 2 3 topic buttons */
+        top: 44.4vw;
         z-index: 9999;
 
         width: 15vw;
