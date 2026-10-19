@@ -1,7 +1,7 @@
 // Prevent English content from flashing before
 // the saved language is applied.
 (() => {
-  const STORAGE_KEY = "saraswatiTopicLang";
+  const STORAGE_KEY = "selectedLanguage";
 
   const savedLang =
     localStorage.getItem(STORAGE_KEY) || "English";
@@ -38,7 +38,7 @@ document.addEventListener(
   "DOMContentLoaded",
   async () => {
     const DEFAULT_LANG = "English";
-    const STORAGE_KEY = "saraswatiTopicLang";
+    const STORAGE_KEY = "selectedLanguage";
 
     const html = document.documentElement;
 
