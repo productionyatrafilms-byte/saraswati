@@ -22,14 +22,25 @@
     />
 
     <style>
+      /* Hidden scrollbar; the page scrolls vertically only when the
+         content is taller than the window (same technique as gyanpanchami). */
+      html {
+        scrollbar-width: none;
+      }
+
+      ::-webkit-scrollbar {
+        display: none;
+      }
+
       html,
       body {
-        overflow: hidden;
+        overflow-x: hidden;
+        overflow-y: auto;
       }
 
       .home-btn {
-        position: fixed;
-        top: 3vw;
+        position: absolute;
+        top: 1.5vw;
         left: 3vw;
         width: 3.5vw;
         height: 3.5vw;
@@ -59,8 +70,73 @@
       }
 
       .page-title span {
-        position: fixed;
+        position: absolute;
         top: 2.5vw;
+      }
+
+      /* 1 2 3 topic switcher under the visual */
+      .topic-switch {
+        position: absolute;
+        left: 47%;
+        bottom: 1vw;
+        transform: translateX(-50%);
+        z-index: 30;
+        display: flex;
+        gap: 1.2vw;
+      }
+
+      .topic-switch-btn {
+        position: relative;
+        width: 3.2vw;
+        height: 3.2vw;
+        padding: 0;
+        border: 0.15vw solid #821b00;
+        border-radius: 50%;
+        background: #821b00;
+        color: #fff;
+        font-family: inherit;
+        font-size: 1.6vw;
+        font-weight: 700;
+        line-height: 1;
+        cursor: pointer;
+        transition:
+          background-color 0.2s ease,
+          color 0.2s ease;
+      }
+
+      .topic-switch-btn.active,
+      .topic-switch-btn:hover,
+      .topic-switch-btn:focus-visible {
+        background: #fff;
+        color: #821b00;
+        outline: none;
+      }
+
+      /* Tooltip with the topic name */
+      .topic-switch-btn::after {
+        content: attr(data-tooltip);
+        position: absolute;
+        bottom: calc(100% + 0.6vw);
+        left: 50%;
+        transform: translateX(-50%);
+        padding: 0.4vw 0.8vw;
+        border-radius: 0.5vw;
+        background: #821b00;
+        color: #fff;
+        font-size: 1.3vw;
+        font-weight: 400;
+        line-height: 1.3;
+        white-space: nowrap;
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+        transition: opacity 0.2s ease;
+      }
+
+      .topic-switch-btn:hover::after,
+      .topic-switch-btn:focus-visible::after {
+        opacity: 1;
+        visibility: visible;
       }
 
       /* Previous button */
@@ -293,6 +369,12 @@
             ></video>
           </div>
         </div>
+
+        <div class="topic-switch">
+          <button type="button" class="topic-switch-btn" data-topic="1">1</button>
+          <button type="button" class="topic-switch-btn" data-topic="2">2</button>
+          <button type="button" class="topic-switch-btn" data-topic="3">3</button>
+        </div>
       </div>
 
       <div class="right-container">
@@ -316,17 +398,17 @@
         </div>
 
         <div class="navigation-btn">
-          <div class="next-btn-1">
+          <div class="prev-btn-1">
             <img
               src="./assets/images/top-btn.png"
-              alt="Next"
+              alt="Previous"
             />
           </div>
 
-          <div class="prev-btn-1">
+          <div class="next-btn-1">
             <img
               src="./assets/images/down-btn.png"
-              alt="Previous"
+              alt="Next"
             />
           </div>
         </div>

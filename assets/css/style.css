@@ -60,6 +60,7 @@ body {
 }
 
 body {
+  position: relative;
   width: 100vw !important;
   height: 100%;
   background-image: url("../images/background.png");
@@ -191,8 +192,8 @@ body {
 }
 
 .home-btn {
-  position: fixed;
-  top: 3vw;
+  position: absolute;
+  top: 1.5vw;
   left: 4vw;
   width: 3.5vw;
   z-index: 2;
@@ -304,9 +305,9 @@ body[data-lang="hi"] .center span{
 }
 
 .language-container {
-  position: fixed;
-  top: 3vw;
-  right: 5vw;
+  position: absolute;
+  top: 1.5vw;
+  right: 2vw;
   display: flex;
   width: 8.4vw;
   padding: 0.2vw;

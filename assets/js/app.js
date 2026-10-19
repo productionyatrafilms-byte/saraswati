@@ -1,5 +1,14 @@
 // Hide page instantly to prevent English flash before JSON language applies
 (() => {
+  // Default to English when no valid language is saved.
+  try {
+    const validLangs = ["English", "Hindi", "Gujarati"];
+
+    if (!validLangs.includes(localStorage.getItem("selectedLanguage"))) {
+      localStorage.setItem("selectedLanguage", "English");
+    }
+  } catch (error) {}
+
   const savedLang =
     localStorage.getItem("selectedLanguage") ||
     JSON.parse(localStorage.getItem("saraswatiPageState") || "{}")?.currentLang ||
@@ -22,6 +31,16 @@
     }
   `;
   document.head.appendChild(style);
+
+  // Never leave the page blank if something goes wrong while loading.
+  setTimeout(() => {
+    const root = document.documentElement;
+
+    if (root.classList.contains("lang-loading")) {
+      root.classList.remove("lang-loading");
+      root.classList.add("lang-ready");
+    }
+  }, 3000);
 })();
 
 document.addEventListener("DOMContentLoaded", async () => {
@@ -336,6 +355,9 @@ window.addEventListener("resize", checkScreenSize);
     firstAnimationDone = false;
     secondAnimationDone = false;
     firstStageRunning = false;
+
+    // Let the entrance animations play again instead of snapping to the end.
+    html.classList.remove("restore-index-transition");
 
     // Important: do NOT reset language to English
     currentLang = localStorage.getItem(LANG_KEY) || currentLang || DEFAULT_LANG;

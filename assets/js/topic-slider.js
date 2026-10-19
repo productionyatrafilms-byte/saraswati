@@ -1,6 +1,15 @@
 // Prevent English content from flashing before
 // the saved language is applied.
 (() => {
+  // Default to English when no valid language is saved.
+  try {
+    const validLangs = ["English", "Hindi", "Gujarati"];
+
+    if (!validLangs.includes(localStorage.getItem("selectedLanguage"))) {
+      localStorage.setItem("selectedLanguage", "English");
+    }
+  } catch (error) {}
+
   const STORAGE_KEY = "selectedLanguage";
 
   const savedLang =
@@ -32,6 +41,16 @@
   `;
 
   document.head.appendChild(loadingStyle);
+
+  // Never leave the page blank if something goes wrong while loading.
+  setTimeout(() => {
+    const root = document.documentElement;
+
+    if (root.classList.contains("lang-loading")) {
+      root.classList.remove("lang-loading");
+      root.classList.add("lang-ready");
+    }
+  }, 3000);
 })();
 
 document.addEventListener(
@@ -362,6 +381,40 @@ document.addEventListener(
       }
     }
 
+    // 1 2 3 buttons under the visual: highlight the active topic and
+    // keep each tooltip in the selected language.
+    const topicSwitchBtns = document.querySelectorAll(
+      ".topic-switch-btn",
+    );
+
+    function updateTopicSwitch() {
+      topicSwitchBtns.forEach((btn) => {
+        const topic = Number(btn.dataset.topic);
+
+        const label = document.createElement("div");
+        label.innerHTML = getTranslation(
+          currentLang,
+          `topic-${topic}`,
+        );
+
+        btn.dataset.tooltip = label.textContent.trim();
+        btn.setAttribute("aria-label", btn.dataset.tooltip);
+        btn.classList.toggle("active", topic === currentSection);
+      });
+    }
+
+    topicSwitchBtns.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const topic = Number(btn.dataset.topic);
+
+        if (topic === currentSection) return;
+
+        currentSection = topic;
+        currentSlide = 1;
+        renderSectionContent();
+      });
+    });
+
     function renderSectionContent() {
       const section =
         sectionMap[currentSection];
@@ -433,6 +486,7 @@ document.addEventListener(
 
       createPagination();
       updateNavButtons();
+      updateTopicSwitch();
     }
 
     function updateLanguage(lang) {

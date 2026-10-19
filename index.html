@@ -30,21 +30,41 @@
         }
       } catch (error) {}
 
-      if (
-        localStorage.getItem(
-          INDEX_TRANSITION_KEY,
-        ) === "true"
-      ) {
-        document.documentElement.classList.add(
-          "restore-index-transition",
+      // Skip the entrance animations only when the visitor has already
+      // clicked through them (saved progress), never on a fresh page.
+      try {
+        const savedIndexState = JSON.parse(
+          localStorage.getItem("saraswatiPageState") ||
+            "{}",
         );
-      }
+
+        if (
+          savedIndexState.firstAnimationDone ||
+          savedIndexState.firstStageRunning ||
+          savedIndexState.secondAnimationDone
+        ) {
+          document.documentElement.classList.add(
+            "restore-index-transition",
+          );
+        }
+      } catch (error) {}
     </script>
 
     <style>
+      /* Hidden scrollbar; the page scrolls vertically only when the
+         content is taller than the window (same technique as gyanpanchami). */
+      html {
+        scrollbar-width: none;
+      }
+
+      ::-webkit-scrollbar {
+        display: none;
+      }
+
       html,
       body {
-        overflow: hidden;
+        overflow-x: hidden;
+        overflow-y: auto;
       }
 
       /* Show every entrance animation in its final state on a return visit. */
@@ -88,8 +108,8 @@
          this file, not to the css folder.
          ========================================= */
       .video-play-btn {
-        position: fixed;
-        top: 2vw;
+        position: absolute;
+        top: 0.7vw;
         left: 4vw;
         width: 14vw;
         height: 5vw;
@@ -895,12 +915,8 @@
       const homeBtn =
         document.querySelector(".home-btn");
 
-      // Remember that this page's entrance transition has already run.
-      // Topic-page navigation does not clear this value.
-      localStorage.setItem(
-        INDEX_TRANSITION_KEY,
-        "true",
-      );
+      // Remember this tab session so saved progress is kept when returning
+      // from a topic page. (Progress itself is saved by app.js.)
       try {
         sessionStorage.setItem(
           INDEX_SESSION_KEY,
@@ -1586,17 +1602,9 @@
           function (event) {
             event.preventDefault();
 
-            // Only this page's home button resets the saved transition.
-            localStorage.removeItem(
-              INDEX_TRANSITION_KEY,
-            );
-
+            // The animation reset itself is done by app.js
+            // (resetTransitions), so the page is not reloaded.
             playAudio(homeAudio);
-
-            setTimeout(function () {
-              window.location.href =
-                "index.html";
-            }, 500);
           },
         );
       }
