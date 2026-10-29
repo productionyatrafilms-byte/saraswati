@@ -181,6 +181,15 @@ window.addEventListener("resize", checkScreenSize);
     );
 
     html.setAttribute("data-current-lang", lang);
+    applySubtitles(lang);
+  }
+
+  // subtitles are English only — shown for English, hidden for Hindi / Gujarati
+  function applySubtitles(lang) {
+    if (!popupVideo) return;
+    for (let i = 0; i < popupVideo.textTracks.length; i++) {
+      popupVideo.textTracks[i].mode = lang === "English" ? "showing" : "disabled";
+    }
   }
 
   function setActiveButton(lang) {
